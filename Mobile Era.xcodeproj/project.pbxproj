@@ -24,14 +24,16 @@
 		D05AA5DA208C8332002DC68C /* Speaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05AA5D9208C8332002DC68C /* Speaker.swift */; };
 		D05AA5DC208C83EA002DC68C /* Social.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05AA5DB208C83EA002DC68C /* Social.swift */; };
 		D05AA5DE208C84B0002DC68C /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05AA5DD208C84B0002DC68C /* Session.swift */; };
-		D05AA5E0208C8551002DC68C /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05AA5DF208C8551002DC68C /* Schedule.swift */; };
 		D05AA5E2208C85B4002DC68C /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05AA5E1208C85B4002DC68C /* Day.swift */; };
 		D05AA5E4208C8609002DC68C /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05AA5E3208C8609002DC68C /* Track.swift */; };
 		D05AA5E6208C8663002DC68C /* Timeslot.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05AA5E5208C8663002DC68C /* Timeslot.swift */; };
 		D05AA5E8208C8859002DC68C /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05AA5E7208C8859002DC68C /* Utils.swift */; };
-		D05AA5EB208C8C3A002DC68C /* SessionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05AA5E9208C8C3A002DC68C /* SessionTableViewCell.swift */; };
-		D05AA5EC208C8C3A002DC68C /* SessionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D05AA5EA208C8C3A002DC68C /* SessionTableViewCell.xib */; };
 		D05AA5F0208C8C94002DC68C /* UICustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05AA5EF208C8C94002DC68C /* UICustomTableViewCell.swift */; };
+		D05AA5F6208C981E002DC68C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D05AA5F5208C981D002DC68C /* GoogleService-Info.plist */; };
+		D05AA5F8208CDE91002DC68C /* SessionTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05AA5F7208CDE91002DC68C /* SessionTableViewHeader.swift */; };
+		D05AA5FD208CDF8A002DC68C /* SessionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D05AA5FB208CDF8A002DC68C /* SessionTableViewCell.xib */; };
+		D05AA5FE208CDF8A002DC68C /* SessionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05AA5FC208CDF8A002DC68C /* SessionTableViewCell.swift */; };
+		D05AA600208CDFA4002DC68C /* SessionTableViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = D05AA5FF208CDFA4002DC68C /* SessionTableViewHeader.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,14 +73,16 @@
 		D05AA5D9208C8332002DC68C /* Speaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Speaker.swift; sourceTree = "<group>"; };
 		D05AA5DB208C83EA002DC68C /* Social.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Social.swift; sourceTree = "<group>"; };
 		D05AA5DD208C84B0002DC68C /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
-		D05AA5DF208C8551002DC68C /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		D05AA5E1208C85B4002DC68C /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
 		D05AA5E3208C8609002DC68C /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
 		D05AA5E5208C8663002DC68C /* Timeslot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timeslot.swift; sourceTree = "<group>"; };
 		D05AA5E7208C8859002DC68C /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
-		D05AA5E9208C8C3A002DC68C /* SessionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionTableViewCell.swift; sourceTree = "<group>"; };
-		D05AA5EA208C8C3A002DC68C /* SessionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SessionTableViewCell.xib; sourceTree = "<group>"; };
 		D05AA5EF208C8C94002DC68C /* UICustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UICustomTableViewCell.swift; path = Cells/UICustomTableViewCell.swift; sourceTree = "<group>"; };
+		D05AA5F5208C981D002DC68C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D05AA5F7208CDE91002DC68C /* SessionTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SessionTableViewHeader.swift; path = Cells/SessionTableViewHeader.swift; sourceTree = "<group>"; };
+		D05AA5FB208CDF8A002DC68C /* SessionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SessionTableViewCell.xib; path = Cells/SessionTableViewCell.xib; sourceTree = "<group>"; };
+		D05AA5FC208CDF8A002DC68C /* SessionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SessionTableViewCell.swift; path = Cells/SessionTableViewCell.swift; sourceTree = "<group>"; };
+		D05AA5FF208CDFA4002DC68C /* SessionTableViewHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SessionTableViewHeader.xib; path = Cells/SessionTableViewHeader.xib; sourceTree = "<group>"; };
 		DB86FECEB60650EEC377006F /* Pods-Mobile Era.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mobile Era.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mobile Era/Pods-Mobile Era.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -149,6 +153,7 @@
 				D05AA5D6208C81B0002DC68C /* Model */,
 				D05AA5D3208C8137002DC68C /* Datasources */,
 				D05AA5A0208C64F1002DC68C /* AppDelegate.swift */,
+				D05AA5F5208C981D002DC68C /* GoogleService-Info.plist */,
 				D05AA5A2208C64F1002DC68C /* ScheduleViewController.swift */,
 				D05AA5A4208C64F1002DC68C /* SpeakersViewController.swift */,
 				D05AA5C2208C6AB2002DC68C /* VenueViewController.swift */,
@@ -187,7 +192,6 @@
 				D05AA5D9208C8332002DC68C /* Speaker.swift */,
 				D05AA5DB208C83EA002DC68C /* Social.swift */,
 				D05AA5DD208C84B0002DC68C /* Session.swift */,
-				D05AA5DF208C8551002DC68C /* Schedule.swift */,
 				D05AA5E1208C85B4002DC68C /* Day.swift */,
 				D05AA5E3208C8609002DC68C /* Track.swift */,
 				D05AA5E5208C8663002DC68C /* Timeslot.swift */,
@@ -198,9 +202,11 @@
 		D05AA5EE208C8C48002DC68C /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				D05AA5E9208C8C3A002DC68C /* SessionTableViewCell.swift */,
-				D05AA5EA208C8C3A002DC68C /* SessionTableViewCell.xib */,
+				D05AA5FC208CDF8A002DC68C /* SessionTableViewCell.swift */,
+				D05AA5FB208CDF8A002DC68C /* SessionTableViewCell.xib */,
 				D05AA5EF208C8C94002DC68C /* UICustomTableViewCell.swift */,
+				D05AA5F7208CDE91002DC68C /* SessionTableViewHeader.swift */,
+				D05AA5FF208CDFA4002DC68C /* SessionTableViewHeader.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -291,9 +297,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D05AA5EC208C8C3A002DC68C /* SessionTableViewCell.xib in Resources */,
+				D05AA5FD208CDF8A002DC68C /* SessionTableViewCell.xib in Resources */,
 				D05AA5AD208C64F2002DC68C /* LaunchScreen.storyboard in Resources */,
 				D05AA5C9208C7902002DC68C /* Localizable.strings in Resources */,
+				D05AA5F6208C981E002DC68C /* GoogleService-Info.plist in Resources */,
+				D05AA600208CDFA4002DC68C /* SessionTableViewHeader.xib in Resources */,
 				D05AA5AA208C64F2002DC68C /* Assets.xcassets in Resources */,
 				D05AA5A8208C64F1002DC68C /* Main.storyboard in Resources */,
 			);
@@ -335,16 +343,22 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Mobile Era/Pods-Mobile Era-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -389,11 +403,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D05AA5FE208CDF8A002DC68C /* SessionTableViewCell.swift in Sources */,
 				D05AA5DE208C84B0002DC68C /* Session.swift in Sources */,
 				D05AA5A5208C64F1002DC68C /* SpeakersViewController.swift in Sources */,
 				D05AA5E6208C8663002DC68C /* Timeslot.swift in Sources */,
 				D05AA5E2208C85B4002DC68C /* Day.swift in Sources */,
-				D05AA5E0208C8551002DC68C /* Schedule.swift in Sources */,
 				D05AA5E8208C8859002DC68C /* Utils.swift in Sources */,
 				D05AA5D5208C8152002DC68C /* ScheduleSource.swift in Sources */,
 				D05AA5A1208C64F1002DC68C /* AppDelegate.swift in Sources */,
@@ -402,9 +416,9 @@
 				D05AA5D8208C8260002DC68C /* Tag.swift in Sources */,
 				D05AA5CF208C7A9A002DC68C /* R.generated.swift in Sources */,
 				D05AA5C3208C6AB2002DC68C /* VenueViewController.swift in Sources */,
-				D05AA5EB208C8C3A002DC68C /* SessionTableViewCell.swift in Sources */,
 				D05AA5E4208C8609002DC68C /* Track.swift in Sources */,
 				D05AA5A3208C64F1002DC68C /* ScheduleViewController.swift in Sources */,
+				D05AA5F8208CDE91002DC68C /* SessionTableViewHeader.swift in Sources */,
 				D05AA5DC208C83EA002DC68C /* Social.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

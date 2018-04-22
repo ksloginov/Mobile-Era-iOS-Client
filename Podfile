@@ -8,6 +8,8 @@ target 'Mobile Era' do
   pod 'Alamofire'
   pod 'SDWebImage'
   pod 'R.swift'
+  pod 'Firebase/Core'
+  pod 'Firebase/Database'
 
   # Pods for Mobile Era
 

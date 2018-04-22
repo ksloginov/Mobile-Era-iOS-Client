@@ -17,8 +17,14 @@ public class Session: Mappable {
     public var title: String = ""
     public var description: String = ""
     public var language: String = ""
+    public var speakerIds: [Int] = []
     public var speakers: [Speaker] = []
     public var tags: [String] = []
+    public var price: String = ""
+    
+    public var isWorkshop: Bool {
+        return id >= 400 && id < 500
+    }
     
     public var isSystemAnnounce: Bool {
         return id >= 900
@@ -48,7 +54,7 @@ public class Session: Mappable {
         title               <- map["title"]
         description         <- map["description"]
         language            <- map["language"]
-        speakers            <- map["speakers"]
+        speakerIds          <- map["speakers"]
         tags                <- map["tags"]
     }
 

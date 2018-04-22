@@ -12,51 +12,97 @@ import UIKit
 class ScheduleSource: NSObject, UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let day = schedule[safe: section] else { return 0 }
-        
-        var result = 0
-        
-        for timeslot in day.timeslots {
-            for i in 0..<timeslot.sessions.count {
-                guard let session = timeslot.sessions[safe: i] else { continue }
-                
-                if session.isSystemAnnounce {
-                    continue
-                }
-                
-                if trackId == nil, session.isFavorite {
-                    result += 1 // counting favorite talks
-                }
-                
-                if i == trackId {
-                    result += 1
-                    break
-                }
-            }
-        }
-        
-        return result
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        return data[safe: section]?.sessions.count ?? 0
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return data.count
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 40
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: SessionTableViewHeader.key) as? SessionTableViewHeader {
+            header.set(timeslot: data[safe: section])
+            return header
+        }
+        
+        return nil
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: SessionTableViewCell.key) as? SessionTableViewCell {
+            cell.set(session: data[safe: indexPath.section]?.sessions[safe: indexPath.row])
+            return cell
+        }
+        
+        return UITableViewCell()
     }
     
     private weak var vc: UIViewController?
-    private var trackId: Int? // nil == favorite-tab
+    private var data: [Timeslot] = []
     
     
-    public var sessions: [Session] = []
+    public var allSessions: [Session] = []
     public var schedule: [Day] = []
-    public var speakers: [Speaker] = []
     
-    public init (_ vc: UIViewController, trackId: Int? = nil) {
+    public var selectedDay: Int
+    public var selectedTags: [String] = []
+    public var showOnlyFavorite: Bool = false
+    
+    public init (_ vc: UIViewController, selectedDay: Int) {
         self.vc = vc
-        self.trackId = trackId
+        self.selectedDay = selectedDay
     }
     
+    public func setSelectedDay(_ day: Int) {
+        self.selectedDay = day
+        
+        doFilter()
+    }
+    
+    public func setData(allSessions: [Session], schedule: [Day]) {
+        self.allSessions = allSessions
+        self.schedule = schedule
+        
+        doFilter()
+    }
+    
+    public func doFilter() {
+        // generating data
+        
+        data = []
+        
+        // workshop day
+        if selectedDay == 0 {
+            data = [Timeslot(startTime: "09:00", endTime: "16:00", sessions: allSessions.filter({$0.isWorkshop}))]
+        } else if let day = schedule[safe: selectedDay - 1] {
+            // conference days
+            for timeslot in day.timeslots {
+                data.append(Timeslot(startTime: timeslot.startTime, endTime: timeslot.endTime, sessions: timeslot.sessions.filter({isMatchingFilter($0)})))
+            }
+        }
+    }
+    
+    private func isMatchingFilter(_ session: Session) -> Bool {
+        if showOnlyFavorite && !session.isFavorite {
+            return false
+        }
+        
+        if !selectedTags.isEmpty {
+            return session.tags.contains(where: {selectedTags.contains($0)})
+        }
+        
+        return true
+    }
 }

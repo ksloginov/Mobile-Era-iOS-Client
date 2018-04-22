@@ -19,15 +19,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="MId-ea-rl5">
-                                <rect key="frame" x="18.5" y="72" width="283" height="29"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="MId-ea-rl5">
+                                <rect key="frame" x="36" y="72" width="248" height="29"/>
                                 <segments>
-                                    <segment title="Odin"/>
-                                    <segment title="Freyja"/>
-                                    <segment title="Thor"/>
-                                    <segment title="Favorited"/>
+                                    <segment title="Workshops"/>
+                                    <segment title="Day 1"/>
+                                    <segment title="Day 2"/>
                                 </segments>
                                 <color key="tintColor" name="Primary Color"/>
+                                <connections>
+                                    <action selector="onSegmentControlValueChanged:" destination="9pv-A4-QxB" eventType="valueChanged" id="C92-2P-tP3"/>
+                                </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rdF-8P-lgt">
                                 <rect key="frame" x="0.0" y="108" width="320" height="323"/>
@@ -56,6 +58,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="daySegmentControl" destination="MId-ea-rl5" id="ooc-gt-ybi"/>
                         <outlet property="tableView" destination="rdF-8P-lgt" id="fi0-bh-ddD"/>
                     </connections>
                 </viewController>
@@ -237,6 +240,6 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="uRh-8a-46l"/>
+        <segue reference="GtJ-2S-Ab8"/>
     </inferredMetricsTieBreakers>
 </document>
