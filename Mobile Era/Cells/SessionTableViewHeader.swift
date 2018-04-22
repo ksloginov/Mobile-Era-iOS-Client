@@ -23,7 +23,7 @@ class SessionTableViewHeader: UITableViewHeaderFooterView {
         visualEffectView.effect = UIBlurEffect(style: .extraLight)
         
         if let startTime = timeslot?.startTime, let endTime = timeslot?.endTime {
-            lblHeader.text = startTime + " " + endTime
+            lblHeader.text = startTime + " - " + endTime
         } else {
             lblHeader.text = ""
         }

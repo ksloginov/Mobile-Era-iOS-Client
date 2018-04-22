@@ -16,7 +16,9 @@ public class Session: Mappable {
     public var id: Int = 0
     public var title: String = ""
     public var description: String = ""
+    public var image: String = ""
     public var language: String = ""
+    public var lightning: Bool = false
     public var speakerIds: [Int] = []
     public var speakers: [Speaker] = []
     public var tags: [String] = []
@@ -53,6 +55,8 @@ public class Session: Mappable {
         id                  <- map["id"]
         title               <- map["title"]
         description         <- map["description"]
+        lightning           <- map["lightning"]
+        image               <- map["image"]
         language            <- map["language"]
         speakerIds          <- map["speakers"]
         tags                <- map["tags"]
