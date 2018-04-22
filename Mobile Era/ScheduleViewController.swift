@@ -9,10 +9,26 @@
 import UIKit
 
 class ScheduleViewController: UIViewController {
-
+    
+    @IBOutlet weak var tableView: UITableView!
+    private var scheduleSource: ScheduleSource?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        title = R.string.localizable.schedule()
+        
+        scheduleSource = ScheduleSource(self, trackId: 0)
+        tableView.dataSource = scheduleSource
+        tableView.delegate = scheduleSource
+        tableView.register(SessionTableViewCell.nib, forCellReuseIdentifier: SessionTableViewCell.key)
+        tableView.isDirectionalLockEnabled = true
+        tableView.separatorStyle = .none
+        
+        loadData()
+    }
+    
+    private func loadData() {
+        
     }
 }
 

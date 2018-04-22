@@ -1,0 +1,30 @@
+
+/* Class = "UILabel"; text = "Loaded by FirstViewController"; ObjectID = "A5M-7J-77L"; */
+"A5M-7J-77L.text" = "Loaded by FirstViewController";
+
+/* Class = "UITabBarItem"; title = "Item"; ObjectID = "Fj7-XZ-KvS"; */
+"Fj7-XZ-KvS.title" = "Item";
+
+/* Class = "UITabBarItem"; title = "Item"; ObjectID = "Fu3-UA-VeG"; */
+"Fu3-UA-VeG.title" = "Item";
+
+/* Class = "UILabel"; text = "Schedule View"; ObjectID = "KQZ-1w-vlD"; */
+"KQZ-1w-vlD.text" = "Schedule View";
+
+/* Class = "UITabBarItem"; title = "Venue"; ObjectID = "QhN-xT-vAY"; */
+"QhN-xT-vAY.title" = "Spillested";
+
+/* Class = "UITabBarItem"; title = "Item"; ObjectID = "XAc-3Z-TET"; */
+"XAc-3Z-TET.title" = "Item";
+
+/* Class = "UILabel"; text = "Venue View"; ObjectID = "aan-fj-lO2"; */
+"aan-fj-lO2.text" = "Venue View";
+
+/* Class = "UITabBarItem"; title = "Schedule"; ObjectID = "acW-dT-cKf"; */
+"acW-dT-cKf.title" = "Dagsplan";
+
+/* Class = "UITabBarItem"; title = "Speakers"; ObjectID = "cPa-gy-q4n"; */
+"cPa-gy-q4n.title" = "Foredragsholdere";
+
+/* Class = "UILabel"; text = "Speakers View"; ObjectID = "zEq-FU-wV5"; */
+"zEq-FU-wV5.text" = "Speakers View";
