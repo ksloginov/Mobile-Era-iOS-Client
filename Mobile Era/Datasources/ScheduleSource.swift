@@ -20,7 +20,19 @@ class ScheduleSource: NSObject, UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if isLegend(section: section, in: tableView) {
+            return 0
+        }
+        
         return 40
+    }
+    
+    private func isLegend(section: Int, in tableView: UITableView) -> Bool {
+        if selectedDay == 0 {
+            return false
+        }
+        
+        return tableView.numberOfSections == section + 1
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -32,6 +44,10 @@ class ScheduleSource: NSObject, UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if isLegend(section: section, in: tableView) {
+            return nil
+        }
+        
         if let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: SessionTableViewHeader.key) as? SessionTableViewHeader {
             header.set(timeslot: data[safe: section])
             return header
@@ -41,7 +57,12 @@ class ScheduleSource: NSObject, UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: SessionTableViewCell.key) as? SessionTableViewCell {
+        if isLegend(section: indexPath.section, in: tableView) {
+            if let cell = tableView.dequeueReusableCell(withIdentifier: SessionTableViewLegendCell.key) as? SessionTableViewLegendCell {
+                
+                return cell
+            }
+        } else if let cell = tableView.dequeueReusableCell(withIdentifier: SessionTableViewCell.key) as? SessionTableViewCell {
             cell.set(session: data[safe: indexPath.section]?.sessions[safe: indexPath.row], track: indexPath.row)
             return cell
         }

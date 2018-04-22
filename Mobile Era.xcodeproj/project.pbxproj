@@ -34,6 +34,8 @@
 		D05AA5FD208CDF8A002DC68C /* SessionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D05AA5FB208CDF8A002DC68C /* SessionTableViewCell.xib */; };
 		D05AA5FE208CDF8A002DC68C /* SessionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05AA5FC208CDF8A002DC68C /* SessionTableViewCell.swift */; };
 		D05AA600208CDFA4002DC68C /* SessionTableViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = D05AA5FF208CDFA4002DC68C /* SessionTableViewHeader.xib */; };
+		D0F51F95208D2725000E08AE /* SessionTableViewLegendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F51F93208D2725000E08AE /* SessionTableViewLegendCell.swift */; };
+		D0F51F96208D2725000E08AE /* SessionTableViewLegendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0F51F94208D2725000E08AE /* SessionTableViewLegendCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +85,8 @@
 		D05AA5FB208CDF8A002DC68C /* SessionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SessionTableViewCell.xib; path = Cells/SessionTableViewCell.xib; sourceTree = "<group>"; };
 		D05AA5FC208CDF8A002DC68C /* SessionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SessionTableViewCell.swift; path = Cells/SessionTableViewCell.swift; sourceTree = "<group>"; };
 		D05AA5FF208CDFA4002DC68C /* SessionTableViewHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SessionTableViewHeader.xib; path = Cells/SessionTableViewHeader.xib; sourceTree = "<group>"; };
+		D0F51F93208D2725000E08AE /* SessionTableViewLegendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionTableViewLegendCell.swift; sourceTree = "<group>"; };
+		D0F51F94208D2725000E08AE /* SessionTableViewLegendCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SessionTableViewLegendCell.xib; sourceTree = "<group>"; };
 		DB86FECEB60650EEC377006F /* Pods-Mobile Era.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mobile Era.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mobile Era/Pods-Mobile Era.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -207,6 +211,8 @@
 				D05AA5EF208C8C94002DC68C /* UICustomTableViewCell.swift */,
 				D05AA5F7208CDE91002DC68C /* SessionTableViewHeader.swift */,
 				D05AA5FF208CDFA4002DC68C /* SessionTableViewHeader.xib */,
+				D0F51F93208D2725000E08AE /* SessionTableViewLegendCell.swift */,
+				D0F51F94208D2725000E08AE /* SessionTableViewLegendCell.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -302,6 +308,7 @@
 				D05AA5C9208C7902002DC68C /* Localizable.strings in Resources */,
 				D05AA5F6208C981E002DC68C /* GoogleService-Info.plist in Resources */,
 				D05AA600208CDFA4002DC68C /* SessionTableViewHeader.xib in Resources */,
+				D0F51F96208D2725000E08AE /* SessionTableViewLegendCell.xib in Resources */,
 				D05AA5AA208C64F2002DC68C /* Assets.xcassets in Resources */,
 				D05AA5A8208C64F1002DC68C /* Main.storyboard in Resources */,
 			);
@@ -407,6 +414,7 @@
 				D05AA5DE208C84B0002DC68C /* Session.swift in Sources */,
 				D05AA5A5208C64F1002DC68C /* SpeakersViewController.swift in Sources */,
 				D05AA5E6208C8663002DC68C /* Timeslot.swift in Sources */,
+				D0F51F95208D2725000E08AE /* SessionTableViewLegendCell.swift in Sources */,
 				D05AA5E2208C85B4002DC68C /* Day.swift in Sources */,
 				D05AA5E8208C8859002DC68C /* Utils.swift in Sources */,
 				D05AA5D5208C8152002DC68C /* ScheduleSource.swift in Sources */,

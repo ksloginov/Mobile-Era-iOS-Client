@@ -26,12 +26,15 @@ class ScheduleViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         database = Database.database().reference()
+        database.keepSynced(true)
+        
         title = R.string.localizable.schedule()
         
         scheduleSource = ScheduleSource(self, selectedDay: daySegmentControl.selectedSegmentIndex)
         tableView.dataSource = scheduleSource
         tableView.delegate = scheduleSource
         tableView.register(SessionTableViewCell.nib, forCellReuseIdentifier: SessionTableViewCell.key)
+        tableView.register(SessionTableViewLegendCell.nib, forCellReuseIdentifier: SessionTableViewLegendCell.key)
         tableView.register(SessionTableViewHeader.nib, forHeaderFooterViewReuseIdentifier: SessionTableViewHeader.key)
         tableView.isDirectionalLockEnabled = true
         tableView.separatorStyle = .none
