@@ -42,7 +42,7 @@ class ScheduleSource: NSObject, UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: SessionTableViewCell.key) as? SessionTableViewCell {
-            cell.set(session: data[safe: indexPath.section]?.sessions[safe: indexPath.row])
+            cell.set(session: data[safe: indexPath.section]?.sessions[safe: indexPath.row], track: indexPath.row)
             return cell
         }
         

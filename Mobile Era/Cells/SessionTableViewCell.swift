@@ -17,6 +17,7 @@ class SessionTableViewCell: UICustomTableViewCell {
     @IBOutlet weak var lblSpeaker: UILabel!
     @IBOutlet weak var imgAvatar: UIImageView!
     @IBOutlet weak var btnStar: UIButton!
+    @IBOutlet weak var colorBarView: UIView!
     @IBOutlet weak var bottomAvatarConstraint: NSLayoutConstraint!
     @IBOutlet weak var bottomSpeakerConstraint: NSLayoutConstraint!
     
@@ -37,8 +38,19 @@ class SessionTableViewCell: UICustomTableViewCell {
         imgAvatar.backgroundColor = R.color.selectionColor()
     }
     
-    public func set(session: Session?) {
+    public func set(session: Session?, track: Int) {
         self.session = session
+
+        colorBarView.layer.backgroundColor = UIColor.clear.cgColor
+        if session?.isSystemAnnounce == false && session?.isWorkshop == false {
+            if track == 0 {
+                colorBarView.layer.backgroundColor = R.color.odinColor()?.cgColor
+            } else if track == 1 {
+                colorBarView.layer.backgroundColor = R.color.freyjaColor()?.cgColor
+            } else if track == 2 {
+                colorBarView.layer.backgroundColor = R.color.thorColor()?.cgColor
+            }
+        }
         
         separatorHeight.constant = 0.5
         lblTitle.text = ""
@@ -51,7 +63,7 @@ class SessionTableViewCell: UICustomTableViewCell {
             lblTitle.attributedText = attributedText
         }
         
-        lblSpeaker.text = session?.speakers.map({$0.name}).joined(separator: ",")
+        lblSpeaker.text = (session?.speakers.map({$0.name}).joined(separator: ","))
         
         btnStar.isHidden = session?.isSystemAnnounce == true
         btnStar.setImage(session?.isFavorite == true ? R.image.star_filled() : R.image.star(), for: .normal)
@@ -79,8 +91,10 @@ class SessionTableViewCell: UICustomTableViewCell {
             }
         }
         
-        bottomAvatarConstraint.constant = session?.tags.isEmpty == true ? 8 : 36
-        bottomSpeakerConstraint.constant = session?.tags.isEmpty == true ? 8 : 36
+        let hasFooter = session?.tags.isEmpty == false || session?.isSystemAnnounce == false
+        
+        bottomAvatarConstraint.constant = hasFooter ? 36 : 8
+        bottomSpeakerConstraint.constant = hasFooter ? 36 : 8
     }
     
 }
