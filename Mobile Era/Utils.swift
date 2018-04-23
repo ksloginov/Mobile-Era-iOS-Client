@@ -63,6 +63,10 @@ extension UIColor {
 public class FixedBackgroundView: UIView {
     override public var backgroundColor: UIColor? {
         didSet {
+            if oldValue == UIColor.clear {
+                return
+            }
+            
             if backgroundColor?.cgColor.alpha == 0 {
                 backgroundColor = oldValue
             }

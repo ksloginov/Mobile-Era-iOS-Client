@@ -47,6 +47,8 @@ class SessionTableViewCell: UICustomTableViewCell {
     
     public func set(session: Session?, track: Int) {
         self.session = session
+        
+        selectionStyle = session?.isSystemAnnounce == true ? .none : .default
 
         var trackName: String = ""
         colorBarView.layer.backgroundColor = UIColor.clear.cgColor
