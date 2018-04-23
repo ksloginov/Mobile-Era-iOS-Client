@@ -236,7 +236,7 @@
         <image name="schedule" width="23" height="23"/>
         <image name="speaker" width="23" height="23"/>
         <namedColor name="Primary Color">
-            <color red="0.17299999296665192" green="0.0" blue="0.63099998235702515" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.17254901960784313" green="0.34509803921568627" blue="0.63137254901960782" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>

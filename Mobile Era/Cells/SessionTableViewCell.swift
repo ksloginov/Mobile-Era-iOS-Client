@@ -15,9 +15,12 @@ class SessionTableViewCell: UICustomTableViewCell {
     @IBOutlet weak var separatorHeight: NSLayoutConstraint!
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var lblSpeaker: UILabel!
+    @IBOutlet weak var lblRoomName: UILabel!
     @IBOutlet weak var imgAvatar: UIImageView!
+    @IBOutlet weak var lblExtraAvatarsCount: UILabel!
     @IBOutlet weak var btnStar: UIButton!
     @IBOutlet weak var colorBarView: UIView!
+    @IBOutlet weak var imgAvatarContainer: UIView!
     @IBOutlet weak var bottomAvatarConstraint: NSLayoutConstraint!
     @IBOutlet weak var bottomSpeakerConstraint: NSLayoutConstraint!
     
@@ -33,24 +36,34 @@ class SessionTableViewCell: UICustomTableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        imgAvatar.layer.cornerRadius = 8
-        imgAvatar.clipsToBounds = true
-        imgAvatar.backgroundColor = R.color.selectionColor()
+    
+        imgAvatarContainer.layer.cornerRadius = 8
+        imgAvatarContainer.clipsToBounds = true
+        
+        
+        lblExtraAvatarsCount.layer.cornerRadius = 2
+        lblExtraAvatarsCount.clipsToBounds = true
     }
     
     public func set(session: Session?, track: Int) {
         self.session = session
 
+        var trackName: String = ""
         colorBarView.layer.backgroundColor = UIColor.clear.cgColor
         if session?.isSystemAnnounce == false && session?.isWorkshop == false {
             if track == 0 {
                 colorBarView.layer.backgroundColor = R.color.odinColor()?.cgColor
+                trackName = "| Odin"
             } else if track == 1 {
                 colorBarView.layer.backgroundColor = R.color.freyjaColor()?.cgColor
+                trackName = "| Freyja"
             } else if track == 2 {
                 colorBarView.layer.backgroundColor = R.color.thorColor()?.cgColor
+                trackName = "| Thor"
             }
         }
+        
+        lblRoomName.text = trackName
         
         separatorHeight.constant = 0.5
         lblTitle.text = ""
@@ -63,7 +76,14 @@ class SessionTableViewCell: UICustomTableViewCell {
             lblTitle.attributedText = attributedText
         }
         
-        lblSpeaker.text = (session?.speakers.map({$0.name}).joined(separator: ","))
+        lblSpeaker.text = (session?.speakers.map({$0.name}).joined(separator: ", "))
+        
+        if let speakersCount = session?.speakers.count, speakersCount > 1 {
+            lblExtraAvatarsCount.isHidden = false
+            lblExtraAvatarsCount.text = "+" + (speakersCount - 1).description
+        } else {
+            lblExtraAvatarsCount.isHidden = true
+        }
         
         btnStar.isHidden = session?.isSystemAnnounce == true
         btnStar.setImage(session?.isFavorite == true ? R.image.star_filled() : R.image.star(), for: .normal)

@@ -41,6 +41,9 @@ class ScheduleSource: NSObject, UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        if let session = data[safe: indexPath.section]?.sessions[safe: indexPath.row] {
+            vc?.navigationController?.pushViewController(SessionsDetailsViewController(session: session), animated: true)
+        }
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

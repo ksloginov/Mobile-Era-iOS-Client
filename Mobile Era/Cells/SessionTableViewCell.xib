@@ -20,13 +20,36 @@
                 <rect key="frame" x="0.0" y="0.0" width="338" height="118.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xRH-re-eHZ">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tTO-tk-OLm">
                         <rect key="frame" x="15" y="8" width="64" height="64"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xRH-re-eHZ">
+                                <rect key="frame" x="0.0" y="0.0" width="64" height="64"/>
+                            </imageView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bsO-hr-rVG">
+                                <rect key="frame" x="46" y="46" width="18" height="18"/>
+                                <color key="backgroundColor" name="Primary Text Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="18" id="hKs-tF-Ud7"/>
+                                    <constraint firstAttribute="width" constant="18" id="jZR-fC-edO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" name="Selection Color"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="64" id="6mm-NJ-ugM"/>
-                            <constraint firstAttribute="height" constant="64" id="XmH-WV-yNK"/>
+                            <constraint firstItem="xRH-re-eHZ" firstAttribute="height" secondItem="tTO-tk-OLm" secondAttribute="height" id="Kcb-hA-193"/>
+                            <constraint firstAttribute="bottom" secondItem="bsO-hr-rVG" secondAttribute="bottom" id="MHl-zx-P9K"/>
+                            <constraint firstAttribute="trailing" secondItem="bsO-hr-rVG" secondAttribute="trailing" id="WRb-Xq-JHK"/>
+                            <constraint firstAttribute="height" constant="64" id="cyG-fU-Jvk"/>
+                            <constraint firstAttribute="width" constant="64" id="iIy-bu-FMt"/>
+                            <constraint firstItem="xRH-re-eHZ" firstAttribute="centerY" secondItem="tTO-tk-OLm" secondAttribute="centerY" id="iLU-ah-mjl"/>
+                            <constraint firstItem="xRH-re-eHZ" firstAttribute="centerX" secondItem="tTO-tk-OLm" secondAttribute="centerX" id="nuf-8V-HFn"/>
+                            <constraint firstItem="xRH-re-eHZ" firstAttribute="width" secondItem="tTO-tk-OLm" secondAttribute="width" id="xCX-79-Zl2"/>
                         </constraints>
-                    </imageView>
+                    </view>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DWa-Lg-XF0">
                         <rect key="frame" x="291" y="43.5" width="40" height="40"/>
                         <constraints>
@@ -46,10 +69,16 @@
                         <color key="textColor" name="Primary Text Color"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yHN-Ki-3us">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yHN-Ki-3us">
                         <rect key="frame" x="87" y="12" width="0.0" height="0.0"/>
                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                         <color key="textColor" name="Primary Text Color"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="CSh-HR-y25">
+                        <rect key="frame" x="91" y="12" width="200" height="0.0"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" name="Secondary Text Color"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xVV-qg-vXE" customClass="FixedBackgroundView" customModule="Mobile_Era" customModuleProvider="target">
@@ -85,35 +114,41 @@
                     </scrollView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="DSd-dm-s69" firstAttribute="leading" secondItem="xRH-re-eHZ" secondAttribute="trailing" constant="8" id="4iu-Yt-xWT"/>
-                    <constraint firstItem="xRH-re-eHZ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="5le-FR-TJh"/>
+                    <constraint firstItem="DSd-dm-s69" firstAttribute="leading" secondItem="tTO-tk-OLm" secondAttribute="trailing" constant="8" id="65n-Xp-urH"/>
                     <constraint firstItem="yHN-Ki-3us" firstAttribute="leading" secondItem="DSd-dm-s69" secondAttribute="leading" id="AHk-dc-YGy"/>
                     <constraint firstItem="6UH-MS-O3n" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="BhS-WV-MBH"/>
                     <constraint firstItem="9rl-Ge-2qg" firstAttribute="leading" secondItem="yHN-Ki-3us" secondAttribute="leading" id="D4Q-G0-GBm"/>
                     <constraint firstAttribute="bottom" secondItem="9rl-Ge-2qg" secondAttribute="bottom" constant="8" id="Gfz-q3-zgJ"/>
                     <constraint firstAttribute="bottom" secondItem="6UH-MS-O3n" secondAttribute="bottom" id="Ocf-MV-57J"/>
-                    <constraint firstItem="DSd-dm-s69" firstAttribute="top" secondItem="xRH-re-eHZ" secondAttribute="top" id="V38-ok-2jn"/>
-                    <constraint firstItem="xRH-re-eHZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="Vhq-o5-E9b"/>
+                    <constraint firstItem="tTO-tk-OLm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="RWi-BS-iTp"/>
+                    <constraint firstItem="DWa-Lg-XF0" firstAttribute="leading" secondItem="CSh-HR-y25" secondAttribute="trailing" id="S8F-yD-3wt"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="tTO-tk-OLm" secondAttribute="bottom" constant="36" id="TrF-z2-tct"/>
                     <constraint firstAttribute="trailing" secondItem="9rl-Ge-2qg" secondAttribute="trailing" constant="15" id="X0x-M7-hDC"/>
                     <constraint firstItem="xVV-qg-vXE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="aP2-Xg-Rk8"/>
-                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="xRH-re-eHZ" secondAttribute="bottom" constant="36" id="aZj-ep-eEU"/>
                     <constraint firstAttribute="trailing" secondItem="6UH-MS-O3n" secondAttribute="trailing" id="bB1-6s-nc8"/>
                     <constraint firstItem="DWa-Lg-XF0" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" constant="4" id="hFK-G9-Mtx"/>
                     <constraint firstItem="yHN-Ki-3us" firstAttribute="top" secondItem="DSd-dm-s69" secondAttribute="bottom" constant="4" id="kmJ-4p-6dT"/>
+                    <constraint firstItem="DSd-dm-s69" firstAttribute="top" secondItem="tTO-tk-OLm" secondAttribute="top" id="n0p-gg-2Dv"/>
                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="yHN-Ki-3us" secondAttribute="bottom" constant="36" id="nSM-hp-sOa"/>
                     <constraint firstItem="xVV-qg-vXE" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" id="q0F-Lu-4MN"/>
                     <constraint firstItem="xVV-qg-vXE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="q1z-Ng-ykc"/>
+                    <constraint firstItem="CSh-HR-y25" firstAttribute="leading" secondItem="yHN-Ki-3us" secondAttribute="trailing" constant="4" id="sOD-kJ-6WT"/>
                     <constraint firstItem="DWa-Lg-XF0" firstAttribute="leading" secondItem="DSd-dm-s69" secondAttribute="trailing" id="t6X-yY-1Nd"/>
                     <constraint firstAttribute="trailing" secondItem="DWa-Lg-XF0" secondAttribute="trailing" constant="7" id="utV-MG-AJv"/>
+                    <constraint firstItem="tTO-tk-OLm" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="w7t-Qr-N8x"/>
+                    <constraint firstItem="CSh-HR-y25" firstAttribute="centerY" secondItem="yHN-Ki-3us" secondAttribute="centerY" id="zw0-SL-HEh"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="bottomAvatarConstraint" destination="aZj-ep-eEU" id="Jx6-gc-ToI"/>
+                <outlet property="bottomAvatarConstraint" destination="TrF-z2-tct" id="16d-6O-93B"/>
                 <outlet property="bottomSpeakerConstraint" destination="nSM-hp-sOa" id="i1b-zs-nSV"/>
                 <outlet property="btnStar" destination="DWa-Lg-XF0" id="fGU-XS-p9I"/>
                 <outlet property="colorBarView" destination="xVV-qg-vXE" id="9oH-na-sxq"/>
                 <outlet property="imgAvatar" destination="xRH-re-eHZ" id="DUD-Ap-bsq"/>
+                <outlet property="imgAvatarContainer" destination="tTO-tk-OLm" id="qba-XH-HkX"/>
+                <outlet property="lblExtraAvatarsCount" destination="bsO-hr-rVG" id="YV7-y1-HXc"/>
+                <outlet property="lblRoomName" destination="CSh-HR-y25" id="GXd-Mf-L6h"/>
                 <outlet property="lblSpeaker" destination="yHN-Ki-3us" id="Etg-XP-HNs"/>
                 <outlet property="lblTitle" destination="DSd-dm-s69" id="vVg-h4-L13"/>
                 <outlet property="separatorHeight" destination="Mft-gV-87B" id="a2T-DZ-hNk"/>
@@ -129,6 +164,15 @@
         </namedColor>
         <namedColor name="Primary Text Color">
             <color red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Primary Text Color">
+            <color red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Secondary Text Color">
+            <color red="0.56470588235294117" green="0.60784313725490191" blue="0.60784313725490191" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Selection Color">
+            <color red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Separator Color">
             <color red="0.92549019607843142" green="0.92549019607843142" blue="0.92549019607843142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
