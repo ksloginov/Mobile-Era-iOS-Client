@@ -84,10 +84,7 @@ class ScheduleSource: NSObject, UITableViewDataSource, UITableViewDelegate {
     
     public var allSessions: [Session] = []
     public var schedule: [Day] = []
-    
     public var selectedDay: Int
-    public var selectedTags: [String] = []
-    public var showOnlyFavorite: Bool = false
     
     public init (_ vc: UIViewController, selectedDay: Int) {
         self.vc = vc
@@ -124,10 +121,12 @@ class ScheduleSource: NSObject, UITableViewDataSource, UITableViewDelegate {
     }
     
     private func isMatchingFilter(_ session: Session) -> Bool {
+        let showOnlyFavorite = SettingsDataManager.instance.showOnlyFavorite
         if showOnlyFavorite && !session.isFavorite {
             return false
         }
         
+        let selectedTags = SettingsDataManager.instance.selectedTags
         if !selectedTags.isEmpty {
             return session.tags.contains(where: {selectedTags.contains($0)})
         }

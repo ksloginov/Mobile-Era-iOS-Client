@@ -22,18 +22,6 @@ class ScheduleViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     private var scheduleSource: ScheduleSource?
     
-    private var selectedTags: [String] = [] {
-        didSet {
-            scheduleSource?.selectedTags = selectedTags
-        }
-    }
-    
-    private var showOnlyFavorite: Bool = false {
-        didSet {
-            scheduleSource?.showOnlyFavorite = showOnlyFavorite
-        }
-    }
-    
     var database: DatabaseReference!
     
     override func viewDidLoad() {
@@ -54,26 +42,24 @@ class ScheduleViewController: UIViewController {
         
         loadData()
         
+        NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: Notification.FILTER_NOTIFICATION), object: nil, queue: nil, using: { [weak self] _ in
+            DispatchQueue.main.async {
+                self?.scheduleSource?.doFilter()
+                self?.tableView.reloadData()
+                self?.updateFilterBadgeCount()
+            }
+        })
+        
         createFilterButton()
         updateFilterBadgeCount()
     }
     
     @objc func onFilterClicked() {
-        guard let sessions = scheduleSource?.allSessions else { return }
-        var allTags: Set<String> = []
-        for session in sessions {
-            session.tags.forEach({allTags.insert($0)})
-        }
-        
-        SettingsDataManager.instance.allTags = Array(allTags)
-        
         let filterPopup = FilterPopupController()
         filterPopup.modalTransitionStyle = .crossDissolve
         filterPopup.modalPresentationStyle = .overFullScreen
         present(filterPopup, animated: true, completion: nil)
     }
-    
-    
     
     public func createFilterButton() {
         let filterIcon = UIButton(frame: CGRect(x: 0, y: 0, width: 22, height: 22))
@@ -100,16 +86,11 @@ class ScheduleViewController: UIViewController {
     public func updateFilterBadgeCount() {
         guard let badge = (filterBtn?.customView?.subviews.first(where: {$0.tag == BADGE_TAG}) as? UILabel) else { return }
         
-        let badgeCount = selectedTags.count + (showOnlyFavorite ? 1 : 0)
+        let badgeCount = SettingsDataManager.instance.selectedTags.count + (SettingsDataManager.instance.showOnlyFavorite ? 1 : 0)
         badge.text = badgeCount.description
         badge.isHidden = badgeCount == 0
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        updateFilterBadgeCount()
-    }
-    
+
     private func loadData() {
         database.observe(.value) { [weak self] (snapshot) in
             guard
@@ -123,7 +104,7 @@ class ScheduleViewController: UIViewController {
             
             let sessions = Array(sessionsDictionary.values) + Array(workshopsDictionary.values)
             
-
+            var allTags: Set<String> = []
             for session in sessions {
                 var joinedSpeakerList: [Speaker] = []
                 for id in session.speakerIds {
@@ -133,6 +114,7 @@ class ScheduleViewController: UIViewController {
                 }
                 
                 session.speakers = joinedSpeakerList
+                session.tags.forEach({allTags.insert($0)})
             }
             
             for day in schedule {
@@ -147,6 +129,9 @@ class ScheduleViewController: UIViewController {
                     timeslot.sessions = joinedSessionsList
                 }
             }
+            
+            let manager = SettingsDataManager.instance
+            manager.allTags = Array(allTags)
             
             self?.scheduleSource?.setData(allSessions: sessions, schedule: schedule)
             self?.tableView.reloadData()

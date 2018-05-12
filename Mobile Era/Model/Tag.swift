@@ -9,17 +9,27 @@
 import Foundation
 import UIKit
 
-class Tag {
+public class Tag: UIButton {
     
-    static func createTag(label: String, fontSize: CGFloat = 12, hasCheckBox: Bool = false) -> UILabelPadding {
-        let tag = UILabelPadding()
-        tag.text = label
-        tag.textColor = UIColor.white
+    override public var backgroundColor: UIColor? {
+        didSet {
+            if backgroundColor?.cgColor.alpha == 0 {
+                backgroundColor = oldValue
+            }
+        }
+    }
+
+    static func createTag(label: String, fontSize: CGFloat = 12, hasCheckBox: Bool = false) -> Tag {
+        let tag = Tag()
+        tag.setTitle(label, for: .normal)
+        tag.contentEdgeInsets = UIEdgeInsets(top: 2, left: 6, bottom: 2, right: 6)
+        tag.titleLabel?.textColor = UIColor.white
         tag.layer.backgroundColor = Tag.color(by: label).cgColor
-        tag.font = UIFont.systemFont(ofSize: fontSize, weight: .semibold)
+        tag.titleLabel?.font = UIFont.systemFont(ofSize: fontSize, weight: .semibold)
         tag.sizeToFit()
         tag.layer.cornerRadius = tag.frame.height / 2
         tag.clipsToBounds = true
+        tag.alpha = SettingsDataManager.instance.selectedTags.isEmpty || SettingsDataManager.instance.selectedTags.contains(label) ? 1 : 0.7
         return tag
     }
     

@@ -29,14 +29,36 @@ class FilterPopupController: UIViewController {
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: Notification.FILTER_NOTIFICATION), object: [])
     }
     
+    @objc func onTagClicked(_ sender: Any) {
+        guard let tag = (sender as? Tag)?.currentTitle else { return }
+        
+        let manager = SettingsDataManager.instance
+        
+        if manager.selectedTags.contains(tag) {
+            manager.selectedTags = manager.selectedTags.filter({$0 != tag})
+        } else {
+            manager.selectedTags.append(tag)
+        }
+        
+        updateState()
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: Notification.FILTER_NOTIFICATION), object: [])
+    }
+    
     @IBAction func onClearFiltersClicked(_ sender: Any) {
-        SettingsDataManager.instance.showOnlyFavorite = false
-        SettingsDataManager.instance.selectedTags = []
+        let manager = SettingsDataManager.instance
+        
+        manager.showOnlyFavorite = false
+        manager.selectedTags = []
+        
         updateState()
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: Notification.FILTER_NOTIFICATION), object: [])
     }
     
     @IBOutlet weak var viewContainer: UIView!
+    
+    private var tagsContainerWidth: CGFloat {
+        return min(440, view.frame.width * 0.8) - 15 * 2
+    }
     
     public init() {
         super.init(nibName: "FilterPopupController", bundle: nil)
@@ -55,64 +77,66 @@ class FilterPopupController: UIViewController {
         
         lblFilter.text = R.string.localizable.filter()
         lblOnlyFavorites.text = R.string.localizable.only_favorite_sessions()
+
+        for label in SettingsDataManager.instance.allTags {
+            let tag = Tag.createTag(label: label, fontSize: 14)
+            tag.addTarget(self, action: #selector(onTagClicked), for: .touchUpInside)
+            tag.translatesAutoresizingMaskIntoConstraints = false
+            tag.widthAnchor.constraint(equalToConstant: tag.frame.width)
+            tag.heightAnchor.constraint(equalToConstant: tag.frame.height)
+            tagsContainer.addSubview(tag)
+        }
         
         updateState()
-        updateTagsFilter(width: min(440, view.frame.width))
+        realignTags(containerWidth: tagsContainerWidth)
     }
     
     private func updateState() {
         imgOnlyFavorites.image = SettingsDataManager.instance.showOnlyFavorite ? R.image.checkboxChecked() : R.image.checkboxUnchecked()
-        
-    }
-    
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        super.viewWillTransition(to: size, with: coordinator)
-        updateTagsFilter(width: min(440, size.width))
-    }
-    
-    private func updateTagsFilter(width: CGFloat) {
-        let allTags = SettingsDataManager.instance.allTags
-        
-        var currentXPosition: CGFloat = 0
-        var lines: CGFloat = 0
-        
-        tagsContainer.subviews.forEach({$0.removeFromSuperview()})
-        
-        var horizontalStack = createStackView()
-        
-        for label in allTags {
-            let tag = Tag.createTag(label: label, fontSize: 14)
-            if tag.frame.width + currentXPosition + horizontalStack.spacing < (width - 15 * 2) {
-                horizontalStack.addArrangedSubview(tag)
-                currentXPosition += tag.frame.width + horizontalStack.spacing
-            } else {
-                attach(horizontalStack, offset: lines * 28)
-                
-                lines += 1
-                horizontalStack = createStackView()
-                horizontalStack.addArrangedSubview(tag)
-                currentXPosition = tag.frame.width
+        for tag in tagsContainer.subviews {
+            if let label = (tag as? Tag)?.currentTitle {
+                tag.alpha = SettingsDataManager.instance.selectedTags.isEmpty || SettingsDataManager.instance.selectedTags.contains(label) ? 1 : 0.25
             }
         }
-        
-        attach(horizontalStack, offset: lines * 28)
-        
-        tagsContainerHeightConstraint.constant = (lines + 1) * 28
+    }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        realignTags(containerWidth: tagsContainerWidth)
     }
     
-    private func attach(_ stack: UIStackView, offset: CGFloat) {
-        tagsContainer.addSubview(stack)
-        stack.topAnchor.constraint(equalTo: tagsContainer.topAnchor, constant: offset).isActive = true
-        stack.leadingAnchor.constraint(equalTo: tagsContainer.leadingAnchor, constant: 0).isActive = true
-    }
-    
-    private func createStackView() -> UIStackView {
-        let horizontalStack = UIStackView()
-        horizontalStack.axis = .horizontal
-        horizontalStack.alignment = .fill
-        horizontalStack.distribution = .fill
-        horizontalStack.spacing = 8
-        horizontalStack.translatesAutoresizingMaskIntoConstraints = false
-        return horizontalStack
+    private func realignTags(containerWidth: CGFloat) {
+        
+        if tagsContainer.subviews.isEmpty {
+            return
+        }
+        
+        tagsContainer.constraints.forEach({
+            if $0 != tagsContainerHeightConstraint {
+                $0.isActive = false
+            }
+        })
+        
+        var tag = tagsContainer.subviews[0]
+        tag.topAnchor.constraint(equalTo: tagsContainer.topAnchor, constant: 0).isActive = true
+        tag.leadingAnchor.constraint(equalTo: tagsContainer.leadingAnchor, constant: 0).isActive = true
+        tagsContainer.layoutIfNeeded()
+        
+        for i in 1..<tagsContainer.subviews.count {
+            tag = tagsContainer.subviews[i]
+            let lastTag = tagsContainer.subviews[i - 1]
+            
+            if lastTag.frame.maxX + (tag.frame.width + 8) < containerWidth {
+                tag.centerYAnchor.constraint(equalTo: lastTag.centerYAnchor).isActive = true
+                tag.leadingAnchor.constraint(equalTo: lastTag.trailingAnchor, constant: 8).isActive = true
+            } else {
+                tag.topAnchor.constraint(equalTo: lastTag.bottomAnchor, constant: 8).isActive = true
+                tag.leadingAnchor.constraint(equalTo: tagsContainer.leadingAnchor, constant: 0).isActive = true
+            }
+            
+            tagsContainer.layoutIfNeeded()
+        }
+        
+        tagsContainerHeightConstraint.constant = tagsContainer.subviews.last!.frame.maxY
     }
 }
