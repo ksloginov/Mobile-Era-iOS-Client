@@ -11,6 +11,18 @@ import UIKit
 
 class Tag {
     
+    static func createTag(label: String, fontSize: CGFloat = 12, hasCheckBox: Bool = false) -> UILabelPadding {
+        let tag = UILabelPadding()
+        tag.text = label
+        tag.textColor = UIColor.white
+        tag.layer.backgroundColor = Tag.color(by: label).cgColor
+        tag.font = UIFont.systemFont(ofSize: fontSize, weight: .semibold)
+        tag.sizeToFit()
+        tag.layer.cornerRadius = tag.frame.height / 2
+        tag.clipsToBounds = true
+        return tag
+    }
+    
     static func color(by name: String) -> UIColor {
         switch name {
         case "Odin":

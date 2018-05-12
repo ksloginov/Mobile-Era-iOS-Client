@@ -101,15 +101,7 @@ class SessionTableViewCell: UICustomTableViewCell {
         tagsStackView.subviews.forEach({$0.removeFromSuperview()})
         if let tags = session?.tags {
             for tag in tags {
-                let label = UILabelPadding()
-                label.text = tag
-                label.textColor = UIColor.white
-                label.layer.backgroundColor = Tag.color(by: tag).cgColor
-                label.font = UIFont.systemFont(ofSize: CGFloat(12), weight: UIFont.Weight.semibold)
-                tagsStackView.addArrangedSubview(label)
-                label.sizeToFit()
-                label.layer.cornerRadius = label.frame.height / 2
-                label.clipsToBounds = true
+                tagsStackView.addArrangedSubview(Tag.createTag(label: tag))
             }
         }
         

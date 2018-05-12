@@ -10,3 +10,5 @@
 "venue" = "Venue";
 "schedule" = "Schedule";
 "room" = "Room";
+"filter" = "Filter";
+"only_favorite_sessions" = "Show only favorite sessions?";
