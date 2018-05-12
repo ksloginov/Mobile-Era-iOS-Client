@@ -32,13 +32,7 @@ class FilterPopupController: UIViewController {
     @objc func onTagClicked(_ sender: Any) {
         guard let tag = (sender as? Tag)?.currentTitle else { return }
         
-        let manager = SettingsDataManager.instance
-        
-        if manager.selectedTags.contains(tag) {
-            manager.selectedTags = manager.selectedTags.filter({$0 != tag})
-        } else {
-            manager.selectedTags.append(tag)
-        }
+        SettingsDataManager.instance.toggleSelectedTag(tag)
         
         updateState()
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: Notification.FILTER_NOTIFICATION), object: [])
@@ -93,11 +87,7 @@ class FilterPopupController: UIViewController {
     
     private func updateState() {
         imgOnlyFavorites.image = SettingsDataManager.instance.showOnlyFavorite ? R.image.checkboxChecked() : R.image.checkboxUnchecked()
-        for tag in tagsContainer.subviews {
-            if let label = (tag as? Tag)?.currentTitle {
-                tag.alpha = SettingsDataManager.instance.selectedTags.isEmpty || SettingsDataManager.instance.selectedTags.contains(label) ? 1 : 0.25
-            }
-        }
+        tagsContainer.subviews.forEach({($0 as? Tag)?.updateState()})
     }
 
     override func viewDidLayoutSubviews() {

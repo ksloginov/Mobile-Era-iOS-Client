@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 public class Tag: UIButton {
-    
+
     override public var backgroundColor: UIColor? {
         didSet {
             if backgroundColor?.cgColor.alpha == 0 {
@@ -18,13 +18,19 @@ public class Tag: UIButton {
             }
         }
     }
+    
+    public func updateState() {
+        guard let tag = currentTitle else { return }
+        
+        alpha = SettingsDataManager.instance.selectedTags.contains(tag) || SettingsDataManager.instance.selectedTags.isEmpty ? 1 : 0.25
+    }
 
     static func createTag(label: String, fontSize: CGFloat = 12, hasCheckBox: Bool = false) -> Tag {
         let tag = Tag()
         tag.setTitle(label, for: .normal)
+        tag.setTitleColor(UIColor.white, for: .normal)
         tag.contentEdgeInsets = UIEdgeInsets(top: 2, left: 6, bottom: 2, right: 6)
-        tag.titleLabel?.textColor = UIColor.white
-        tag.layer.backgroundColor = Tag.color(by: label).cgColor
+        tag.backgroundColor = Tag.color(by: label)
         tag.titleLabel?.font = UIFont.systemFont(ofSize: fontSize, weight: .semibold)
         tag.sizeToFit()
         tag.layer.cornerRadius = tag.frame.height / 2

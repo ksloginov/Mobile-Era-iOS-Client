@@ -40,9 +40,16 @@ class SessionTableViewCell: UICustomTableViewCell {
         imgAvatarContainer.layer.cornerRadius = 8
         imgAvatarContainer.clipsToBounds = true
         
-        
         lblExtraAvatarsCount.layer.cornerRadius = 2
         lblExtraAvatarsCount.clipsToBounds = true
+    }
+    
+    @objc func onTagClicked(_ sender: Any) {
+        guard let tag = (sender as? Tag)?.currentTitle else { return }
+        
+        SettingsDataManager.instance.toggleSelectedTag(tag)
+        
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: Notification.FILTER_NOTIFICATION), object: [])
     }
     
     public func set(session: Session?, track: Int) {
@@ -101,7 +108,9 @@ class SessionTableViewCell: UICustomTableViewCell {
         tagsStackView.subviews.forEach({$0.removeFromSuperview()})
         if let tags = session?.tags {
             for tag in tags {
-                tagsStackView.addArrangedSubview(Tag.createTag(label: tag))
+                let tagView = Tag.createTag(label: tag)
+                tagView.addTarget(self, action: #selector(onTagClicked), for: .touchUpInside)
+                tagsStackView.addArrangedSubview(tagView)
             }
         }
         

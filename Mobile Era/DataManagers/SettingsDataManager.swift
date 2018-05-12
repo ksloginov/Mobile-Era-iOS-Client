@@ -46,6 +46,14 @@ public class SettingsDataManager {
         }
     }
     
+    public func toggleSelectedTag(_ tag: String) {
+        if selectedTags.contains(tag) {
+            selectedTags = selectedTags.filter({$0 != tag})
+        } else {
+            selectedTags.append(tag)
+        }
+    }
+    
     public var selectedTags: [String] {
         get {
             return readArray(SELECTED_TAGS)
