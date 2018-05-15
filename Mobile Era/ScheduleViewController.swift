@@ -102,6 +102,10 @@ class ScheduleViewController: BaseViewController {
     }
 
     private func loadData() {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm"
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        
         database.observe(.value) { [weak self] (snapshot) in
             guard
                 let speakers = Mapper<Speaker>().mapArray(JSONObject: snapshot.childSnapshot(forPath: "speakers").value),
@@ -132,6 +136,8 @@ class ScheduleViewController: BaseViewController {
                     var joinedSessionsList: [Session] = []
                     for id in timeslot.sessionIds.map({$0.first}) {
                         if let joinedSession = sessions.first(where: {$0.id == id}) {
+                            joinedSession.startDate = dateFormatter.date(from: day.date + "T" + timeslot.startTime)
+                            joinedSession.endDate = dateFormatter.date(from: day.date + "T" + timeslot.endTime)
                             joinedSessionsList.append(joinedSession)
                         }
                     }

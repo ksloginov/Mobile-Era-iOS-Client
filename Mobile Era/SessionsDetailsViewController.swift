@@ -14,13 +14,14 @@ import EventKitUI
 class SessionsDetailsViewController: BaseViewController, EKEventEditViewDelegate {
 
     @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var lblCompany: UILabel!
-    @IBOutlet weak var lblName: UILabel!
-    @IBOutlet weak var imgAvatar: UIImageView!
     @IBOutlet weak var tagsStackView: UIStackView!
     @IBOutlet weak var lblSubtitle: UILabel!
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var lblDescription: UILabel!
+    @IBOutlet weak var speakersTableView: UITableView!
+    @IBOutlet weak var speakersTableHeightConstraint: NSLayoutConstraint!
+    
+    private var speakersSource: SpeakersSource?
     
     private lazy var eventController: EKEventEditViewController = {
         let controller = EKEventEditViewController()
@@ -31,6 +32,12 @@ class SessionsDetailsViewController: BaseViewController, EKEventEditViewDelegate
     
     private lazy var eventStore: EKEventStore = {
         return EKEventStore()
+    }()
+    
+    private lazy var dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "E, MMMM d / HH:mm" // DateFormatter.dateFormat(fromTemplate: "MMMM d / HH:mm", options: 0, locale: Locale.current) ?? "MMMM d / HH:mm"
+        return formatter
     }()
     
     private var session: Session?
@@ -66,15 +73,15 @@ class SessionsDetailsViewController: BaseViewController, EKEventEditViewDelegate
     }
     
     func addSessionToCalendar() {
-        guard let session = session else { return }
+        guard let session = session, let startDate = session.startDate else { return }
         
         let event = EKEvent(eventStore: eventStore)
         // set the alarm for 5 minutes from now
-        event.addAlarm(EKAlarm(absoluteDate: session.date.addingTimeInterval(-5 * 60)))
+        event.addAlarm(EKAlarm(absoluteDate: startDate.addingTimeInterval(-5 * 60)))
 
-        event.startDate = session.date
+        event.startDate = startDate
         event.calendar = eventStore.defaultCalendarForNewEvents
-        event.endDate = session.date.addingTimeInterval(session.duration)
+        event.endDate = startDate.addingTimeInterval(session.duration)
         event.title = session.title
         
         eventController.event = event
@@ -100,9 +107,19 @@ class SessionsDetailsViewController: BaseViewController, EKEventEditViewDelegate
 
         navigationItem.rightBarButtonItems = [btnAddToCalendar!, btnAddToFavorites!]
         
+        if let speakers = session?.speakers {
+            speakersTableView.register(SpeakerTableViewCell.nib, forCellReuseIdentifier: SpeakerTableViewCell.key)
+            speakersSource = SpeakersSource(self, speakers: speakers)
+            speakersTableView.dataSource = speakersSource
+            speakersTableView.delegate = speakersSource
+            speakersTableHeightConstraint.constant = CGFloat(speakers.count) * 76
+        } else {
+            speakersTableView.isHidden = true
+        }
+        
         setData()
     }
-    
+
     private func setData() {
         guard let session = session else { return }
         
@@ -118,13 +135,12 @@ class SessionsDetailsViewController: BaseViewController, EKEventEditViewDelegate
         lblDescription.attributedText = descriptionText
         
         for tag in session.tags {
-            tagsStackView.addArrangedSubview(Tag.createTag(label: tag))
+            tagsStackView.addArrangedSubview(Tag.createTag(label: tag, clickable: false))
         }
         
-        lblSubtitle.text = "October 5th / 09:00 - 10:00 / " + session.language
-        
-        if let photoUrl = session.speakers.first?.photoUrl, let url = URL(string: AppDelegate.domain + photoUrl) {
-            imgAvatar.sd_setImage(with: url, completed: nil)
+        lblSubtitle.text = session.language
+        if let startDate = session.startDate {
+            lblSubtitle.text = String(format: "%@ / %@", dateFormatter.string(from: startDate).capitalized, session.language)
         }
     }
 }

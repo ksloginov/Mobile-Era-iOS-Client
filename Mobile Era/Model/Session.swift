@@ -24,8 +24,12 @@ public class Session: Mappable {
     public var tags: [String] = []
     public var price: String = ""
     
-    public var date: Date = Date()
-    public var duration: TimeInterval = 30 * 60
+    public var startDate: Date?
+    public var endDate: Date?
+    public var duration: TimeInterval {
+        guard let startDate = startDate, let endDate = endDate else { return 0 }
+        return endDate.timeIntervalSince(startDate)
+    }
     
     public var isWorkshop: Bool {
         return id >= 400 && id < 500

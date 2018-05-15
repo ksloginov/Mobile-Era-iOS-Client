@@ -113,7 +113,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 14 images.
+  /// This `R.image` struct is generated, and contains static references to 17 images.
   struct image {
     /// Image `Add to calendar`.
     static let addToCalendar = Rswift.ImageResource(bundle: R.hostingBundle, name: "Add to calendar")
@@ -127,6 +127,8 @@ struct R: Rswift.Validatable {
     static let checkboxUnchecked = Rswift.ImageResource(bundle: R.hostingBundle, name: "checkbox-unchecked")
     /// Image `filter`.
     static let filter = Rswift.ImageResource(bundle: R.hostingBundle, name: "filter")
+    /// Image `github`.
+    static let github = Rswift.ImageResource(bundle: R.hostingBundle, name: "github")
     /// Image `info`.
     static let info = Rswift.ImageResource(bundle: R.hostingBundle, name: "info")
     /// Image `logo-white`.
@@ -143,6 +145,10 @@ struct R: Rswift.Validatable {
     static let star_filled = Rswift.ImageResource(bundle: R.hostingBundle, name: "star_filled")
     /// Image `star`.
     static let star = Rswift.ImageResource(bundle: R.hostingBundle, name: "star")
+    /// Image `twitter`.
+    static let twitter = Rswift.ImageResource(bundle: R.hostingBundle, name: "twitter")
+    /// Image `website`.
+    static let website = Rswift.ImageResource(bundle: R.hostingBundle, name: "website")
     
     /// `UIImage(named: "Add to calendar", bundle: ..., traitCollection: ...)`
     static func addToCalendar(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
@@ -172,6 +178,11 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "filter", bundle: ..., traitCollection: ...)`
     static func filter(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.filter, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "github", bundle: ..., traitCollection: ...)`
+    static func github(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.github, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "info", bundle: ..., traitCollection: ...)`
@@ -214,10 +225,20 @@ struct R: Rswift.Validatable {
       return UIKit.UIImage(resource: R.image.star_filled, compatibleWith: traitCollection)
     }
     
+    /// `UIImage(named: "twitter", bundle: ..., traitCollection: ...)`
+    static func twitter(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.twitter, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "website", bundle: ..., traitCollection: ...)`
+    static func website(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.website, compatibleWith: traitCollection)
+    }
+    
     fileprivate init() {}
   }
   
-  /// This `R.nib` struct is generated, and contains static references to 4 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 5 nibs.
   struct nib {
     /// Nib `SessionTableViewCell`.
     static let sessionTableViewCell = _R.nib._SessionTableViewCell()
@@ -227,6 +248,8 @@ struct R: Rswift.Validatable {
     static let sessionTableViewLegendCell = _R.nib._SessionTableViewLegendCell()
     /// Nib `SessionsDetailsViewController`.
     static let sessionsDetailsViewController = _R.nib._SessionsDetailsViewController()
+    /// Nib `SpeakerTableViewCell`.
+    static let speakerTableViewCell = _R.nib._SpeakerTableViewCell()
     
     /// `UINib(name: "SessionTableViewCell", in: bundle)`
     static func sessionTableViewCell(_: Void = ()) -> UIKit.UINib {
@@ -246,6 +269,11 @@ struct R: Rswift.Validatable {
     /// `UINib(name: "SessionsDetailsViewController", in: bundle)`
     static func sessionsDetailsViewController(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.sessionsDetailsViewController)
+    }
+    
+    /// `UINib(name: "SpeakerTableViewCell", in: bundle)`
+    static func speakerTableViewCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.speakerTableViewCell)
     }
     
     fileprivate init() {}
@@ -648,6 +676,7 @@ struct _R: Rswift.Validatable {
   
   struct nib: Rswift.Validatable {
     static func validate() throws {
+      try _SpeakerTableViewCell.validate()
       try _SessionTableViewCell.validate()
     }
     
@@ -694,6 +723,23 @@ struct _R: Rswift.Validatable {
       
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> UIKit.UIView? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+      
+      fileprivate init() {}
+    }
+    
+    struct _SpeakerTableViewCell: Rswift.NibResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "SpeakerTableViewCell"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> SpeakerTableViewCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? SpeakerTableViewCell
+      }
+      
+      static func validate() throws {
+        if UIKit.UIImage(named: "website", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'website' is used in nib 'SpeakerTableViewCell', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "twitter", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'twitter' is used in nib 'SpeakerTableViewCell', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "github", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'github' is used in nib 'SpeakerTableViewCell', but couldn't be loaded.") }
       }
       
       fileprivate init() {}

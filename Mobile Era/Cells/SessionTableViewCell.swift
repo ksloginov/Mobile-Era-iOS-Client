@@ -17,7 +17,7 @@ class SessionTableViewCell: UICustomTableViewCell {
     @IBOutlet weak var lblSpeaker: UILabel!
     @IBOutlet weak var lblRoomName: UILabel!
     @IBOutlet weak var imgAvatar: UIImageView!
-    @IBOutlet weak var lblExtraAvatarsCount: UILabel!
+    @IBOutlet weak var lblExtraAvatarsCount: FixedBackgroundUILabel!
     @IBOutlet weak var btnStar: UIButton!
     @IBOutlet weak var colorBarView: UIView!
     @IBOutlet weak var imgAvatarContainer: UIView!
@@ -40,6 +40,7 @@ class SessionTableViewCell: UICustomTableViewCell {
         imgAvatarContainer.layer.cornerRadius = 8
         imgAvatarContainer.clipsToBounds = true
         
+        lblExtraAvatarsCount.fixedBackgroundColor = R.color.primaryTextColor()
         lblExtraAvatarsCount.layer.cornerRadius = 2
         lblExtraAvatarsCount.clipsToBounds = true
     }

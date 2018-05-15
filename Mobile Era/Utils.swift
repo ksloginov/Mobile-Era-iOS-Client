@@ -70,6 +70,24 @@ extension UIColor {
     }
 }
 
+
+public class FixedBackgroundUILabel: UILabel {
+    public var fixedBackgroundColor: UIColor?
+    
+    private var _isHighlighted: Bool = false
+    public override var isHighlighted: Bool {
+        get {
+            return _isHighlighted
+        }
+        set {
+            _isHighlighted = newValue
+            if let fixedBackgroundColor = fixedBackgroundColor {
+                backgroundColor = fixedBackgroundColor
+            }
+        }
+    }
+}
+
 public class FixedBackgroundView: UIView {
     override public var backgroundColor: UIColor? {
         didSet {

@@ -10,7 +10,7 @@ import Foundation
 import ObjectMapper
 
 public class Timeslot: Mappable {
-    
+
     public var startTime: String = ""
     public var endTime: String = ""
     public var sessionIds: [[Int]] = []
