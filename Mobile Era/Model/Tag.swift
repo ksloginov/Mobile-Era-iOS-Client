@@ -25,13 +25,23 @@ public class Tag: UIButton {
         alpha = SettingsDataManager.instance.selectedTags.contains(tag) || SettingsDataManager.instance.selectedTags.isEmpty ? 1 : 0.25
     }
 
-    static func createTag(label: String, fontSize: CGFloat = 12, hasCheckBox: Bool = false) -> Tag {
+    struct LargeTag {
+        static let contentEdgeInsets = UIEdgeInsets(top: 6, left: 12, bottom: 6, right: 12)
+        static let fontSize: CGFloat = 16
+    }
+    
+    struct SmallTag {
+        static let contentEdgeInsets = UIEdgeInsets(top: 2, left: 6, bottom: 2, right: 6)
+        static let fontSize: CGFloat = 12
+    }
+    
+    static func createTag(label: String, clickable: Bool = false) -> Tag {
         let tag = Tag()
         tag.setTitle(label, for: .normal)
         tag.setTitleColor(UIColor.white, for: .normal)
-        tag.contentEdgeInsets = UIEdgeInsets(top: 2, left: 6, bottom: 2, right: 6)
+        tag.contentEdgeInsets = clickable ? LargeTag.contentEdgeInsets : SmallTag.contentEdgeInsets
         tag.backgroundColor = Tag.color(by: label)
-        tag.titleLabel?.font = UIFont.systemFont(ofSize: fontSize, weight: .semibold)
+        tag.titleLabel?.font = UIFont.systemFont(ofSize: clickable ? LargeTag.fontSize : SmallTag.fontSize, weight: .semibold)
         tag.sizeToFit()
         tag.layer.cornerRadius = tag.frame.height / 2
         tag.clipsToBounds = true

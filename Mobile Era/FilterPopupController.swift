@@ -61,7 +61,7 @@ class FilterPopupController: UIViewController {
         viewContainer.clipsToBounds = true
 
         for label in SettingsDataManager.instance.allTags {
-            let tag = Tag.createTag(label: label, fontSize: 14)
+            let tag = Tag.createTag(label: label, clickable: true)
             tag.addTarget(self, action: #selector(onTagClicked), for: .touchUpInside)
             tag.translatesAutoresizingMaskIntoConstraints = false
             tag.widthAnchor.constraint(equalToConstant: tag.frame.width)
