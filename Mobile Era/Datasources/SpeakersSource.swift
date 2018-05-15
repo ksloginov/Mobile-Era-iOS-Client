@@ -31,6 +31,17 @@ class SpeakersSource: NSObject, UITableViewDataSource, UITableViewDelegate {
         return UITableViewAutomaticDimension
     }
     
+    func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+        var index: [String] = []
+        for name in speakers.map({$0.name}) {
+            if let firstLetter = name.first, !index.contains(firstLetter.description) {
+                index.append(firstLetter.description)
+            }
+        }
+        
+        return index
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: SpeakerTableViewCell.key) as? SpeakerTableViewCell {
             cell.set(speaker: speakers[safe: indexPath.row])
@@ -38,6 +49,10 @@ class SpeakersSource: NSObject, UITableViewDataSource, UITableViewDelegate {
         }
         
         return UITableViewCell()
+    }
+    
+    public func setData(_ speakers: [Speaker]) {
+        self.speakers = speakers
     }
 }
 

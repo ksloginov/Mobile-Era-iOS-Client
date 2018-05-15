@@ -252,7 +252,19 @@
                     <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uRu-um-d8t">
+                                <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="O1u-W8-tvY" firstAttribute="trailing" secondItem="uRu-um-d8t" secondAttribute="trailing" id="Hhz-kY-qds"/>
+                            <constraint firstItem="O1u-W8-tvY" firstAttribute="bottom" secondItem="uRu-um-d8t" secondAttribute="bottom" id="JY7-pW-XTk"/>
+                            <constraint firstItem="uRu-um-d8t" firstAttribute="top" secondItem="O1u-W8-tvY" secondAttribute="top" id="Mi2-9c-gkt"/>
+                            <constraint firstItem="uRu-um-d8t" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" id="Oc3-ur-Qcg"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Speakers" image="speaker" id="cPa-gy-q4n"/>
@@ -263,6 +275,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="uRu-um-d8t" id="LjZ-Bp-Qxn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
@@ -408,6 +423,6 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="uRh-8a-46l"/>
+        <segue reference="R21-Fs-dqE"/>
     </inferredMetricsTieBreakers>
 </document>
