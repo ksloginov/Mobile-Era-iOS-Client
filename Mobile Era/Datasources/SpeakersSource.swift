@@ -10,17 +10,24 @@ import Foundation
 import UIKit
 
 class SpeakersSource: NSObject, UITableViewDataSource, UITableViewDelegate {
-
-    public var speakers: [Speaker] = []
+    
+    public var speakers: [[Speaker]] = []
+    public var index: [String] = []
+    
     private weak var vc: UIViewController?
     
     public init (_ vc: UIViewController, speakers: [Speaker]) {
+        super.init()
         self.vc = vc
-        self.speakers = speakers
+        setData(speakers)
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return index.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return speakers.count
+        return speakers[section].count
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -32,19 +39,12 @@ class SpeakersSource: NSObject, UITableViewDataSource, UITableViewDelegate {
     }
     
     func sectionIndexTitles(for tableView: UITableView) -> [String]? {
-        var index: [String] = []
-        for name in speakers.map({$0.name}) {
-            if let firstLetter = name.first, !index.contains(firstLetter.description) {
-                index.append(firstLetter.description)
-            }
-        }
-        
         return index
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: SpeakerTableViewCell.key) as? SpeakerTableViewCell {
-            cell.set(speaker: speakers[safe: indexPath.row])
+            cell.set(speaker: speakers[indexPath.section][safe: indexPath.row])
             return cell
         }
         
@@ -52,7 +52,22 @@ class SpeakersSource: NSObject, UITableViewDataSource, UITableViewDelegate {
     }
     
     public func setData(_ speakers: [Speaker]) {
-        self.speakers = speakers
+        var speakersIndex: [String: [Speaker]] = [:]
+        
+        for speaker in speakers {
+            if let initials = speaker.name.first?.description {
+                if speakersIndex[initials] == nil {
+                    speakersIndex[initials] = []
+                }
+                
+                speakersIndex[initials]?.append(speaker)
+            }
+        }
+        
+        let sortedSpeakersIndex = speakersIndex.sorted(by: {$0.key < $1.key})
+        
+        self.index = sortedSpeakersIndex.map({$0.key})
+        self.speakers = sortedSpeakersIndex.map({$0.value})
     }
 }
 

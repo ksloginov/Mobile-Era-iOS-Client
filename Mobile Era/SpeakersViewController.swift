@@ -44,7 +44,7 @@ class SpeakersViewController: BaseViewController {
                     return
             }
 
-            self?.speakersSource?.setData(speakers.sorted(by: { $0.name < $1.name }))
+            self?.speakersSource?.setData(speakers)
             self?.tableView.reloadData()
         }
     }
