@@ -12,7 +12,6 @@ import UIKit
 class FilterPopupController: UIViewController {
     
     @IBOutlet weak var lblFilter: UILabel!
-    @IBOutlet weak var lblOnlyFavorites: UILabel!
     @IBOutlet weak var imgOnlyFavorites: UIImageView!
     @IBOutlet weak var btnClearFilter: UIButton!
     @IBOutlet weak var btnOk: UIButton!
@@ -53,24 +52,13 @@ class FilterPopupController: UIViewController {
     private var tagsContainerWidth: CGFloat {
         return min(440, view.frame.width * 0.8) - 15 * 2
     }
-    
-    public init() {
-        super.init(nibName: "FilterPopupController", bundle: nil)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         viewContainer.layer.cornerRadius = 8
         viewContainer.layer.borderColor = R.color.separatorColor()?.cgColor
         viewContainer.layer.borderWidth = 1
         viewContainer.clipsToBounds = true
-        
-        lblFilter.text = R.string.localizable.filter()
-        lblOnlyFavorites.text = R.string.localizable.only_favorite_sessions()
 
         for label in SettingsDataManager.instance.allTags {
             let tag = Tag.createTag(label: label, fontSize: 14)

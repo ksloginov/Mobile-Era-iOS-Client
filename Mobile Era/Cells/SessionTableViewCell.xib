@@ -95,11 +95,11 @@
                             <constraint firstAttribute="height" constant="1" id="Mft-gV-87B"/>
                         </constraints>
                     </view>
-                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9rl-Ge-2qg">
-                        <rect key="frame" x="0.0" y="93" width="338" height="18"/>
+                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9rl-Ge-2qg">
+                        <rect key="frame" x="87" y="93" width="236" height="18"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="fky-Kk-xvv">
-                                <rect key="frame" x="15" y="0.0" width="21.5" height="18"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="0.0" placeholderIntrinsicHeight="infinite" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="fky-Kk-xvv">
+                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="18"/>
                             </stackView>
                         </subviews>
                         <constraints>

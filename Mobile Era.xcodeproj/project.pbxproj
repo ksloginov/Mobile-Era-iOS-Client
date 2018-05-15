@@ -11,7 +11,6 @@
 		D00438E7208DBE0C00173602 /* SessionsDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00438E6208DBE0C00173602 /* SessionsDetailsViewController.swift */; };
 		D00438EB208DC0E000173602 /* SessionsDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D00438E9208DC0E000173602 /* SessionsDetailsViewController.xib */; };
 		D04D2016208FB1DA005E5A7D /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04D2015208FB1DA005E5A7D /* Notification.swift */; };
-		D04D2018208FB34B005E5A7D /* FilterPopupController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D04D2017208FB34B005E5A7D /* FilterPopupController.xib */; };
 		D05763EE208F0E2D0006AB73 /* FilterPopupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05763ED208F0E2D0006AB73 /* FilterPopupController.swift */; };
 		D05AA5A1208C64F1002DC68C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05AA5A0208C64F1002DC68C /* AppDelegate.swift */; };
 		D05AA5A3208C64F1002DC68C /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05AA5A2208C64F1002DC68C /* ScheduleViewController.swift */; };
@@ -38,6 +37,8 @@
 		D05AA5FD208CDF8A002DC68C /* SessionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D05AA5FB208CDF8A002DC68C /* SessionTableViewCell.xib */; };
 		D05AA5FE208CDF8A002DC68C /* SessionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05AA5FC208CDF8A002DC68C /* SessionTableViewCell.swift */; };
 		D05AA600208CDFA4002DC68C /* SessionTableViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = D05AA5FF208CDFA4002DC68C /* SessionTableViewHeader.xib */; };
+		D0A59F5020AAD79D0011173F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D0A59F5220AAD79D0011173F /* InfoPlist.strings */; };
+		D0A59F5520AAF1470011173F /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A59F5420AAF1470011173F /* BaseViewController.swift */; };
 		D0D5B6BF20A74F9E00163B45 /* SettingsDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D5B6BE20A74F9E00163B45 /* SettingsDataManager.swift */; };
 		D0F51F95208D2725000E08AE /* SessionTableViewLegendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F51F93208D2725000E08AE /* SessionTableViewLegendCell.swift */; };
 		D0F51F96208D2725000E08AE /* SessionTableViewLegendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0F51F94208D2725000E08AE /* SessionTableViewLegendCell.xib */; };
@@ -63,7 +64,6 @@
 		D00438E6208DBE0C00173602 /* SessionsDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionsDetailsViewController.swift; sourceTree = "<group>"; };
 		D00438E9208DC0E000173602 /* SessionsDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SessionsDetailsViewController.xib; sourceTree = "<group>"; };
 		D04D2015208FB1DA005E5A7D /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
-		D04D2017208FB34B005E5A7D /* FilterPopupController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FilterPopupController.xib; sourceTree = "<group>"; };
 		D05763ED208F0E2D0006AB73 /* FilterPopupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterPopupController.swift; sourceTree = "<group>"; };
 		D05AA59D208C64F1002DC68C /* Mobile Era.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mobile Era.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D05AA5A0208C64F1002DC68C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -96,6 +96,10 @@
 		D05AA5FB208CDF8A002DC68C /* SessionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SessionTableViewCell.xib; path = Cells/SessionTableViewCell.xib; sourceTree = "<group>"; };
 		D05AA5FC208CDF8A002DC68C /* SessionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SessionTableViewCell.swift; path = Cells/SessionTableViewCell.swift; sourceTree = "<group>"; };
 		D05AA5FF208CDFA4002DC68C /* SessionTableViewHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SessionTableViewHeader.xib; path = Cells/SessionTableViewHeader.xib; sourceTree = "<group>"; };
+		D0A59F5120AAD79D0011173F /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D0A59F5320AAD7A30011173F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D0A59F5420AAF1470011173F /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		D0A59F5720AB07910011173F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		D0B9BC75BDC5D4E03B1DF7B5 /* Pods_Mobile_EraUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mobile_EraUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0D5B6BE20A74F9E00163B45 /* SettingsDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDataManager.swift; sourceTree = "<group>"; };
 		D0F51F93208D2725000E08AE /* SessionTableViewLegendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionTableViewLegendCell.swift; sourceTree = "<group>"; };
@@ -180,12 +184,12 @@
 				D05AA5D3208C8137002DC68C /* Datasources */,
 				D05AA5A0208C64F1002DC68C /* AppDelegate.swift */,
 				D05AA5F5208C981D002DC68C /* GoogleService-Info.plist */,
+				D0A59F5420AAF1470011173F /* BaseViewController.swift */,
 				D05AA5A2208C64F1002DC68C /* ScheduleViewController.swift */,
 				D05AA5A4208C64F1002DC68C /* SpeakersViewController.swift */,
 				D05AA5C2208C6AB2002DC68C /* VenueViewController.swift */,
 				D00438E6208DBE0C00173602 /* SessionsDetailsViewController.swift */,
 				D05763ED208F0E2D0006AB73 /* FilterPopupController.swift */,
-				D04D2017208FB34B005E5A7D /* FilterPopupController.xib */,
 				D00438E9208DC0E000173602 /* SessionsDetailsViewController.xib */,
 				D05AA5A6208C64F1002DC68C /* Main.storyboard */,
 				D05AA5A9208C64F2002DC68C /* Assets.xcassets */,
@@ -193,6 +197,7 @@
 				D05AA5C7208C7902002DC68C /* Localizable.strings */,
 				D05AA5CE208C7A9A002DC68C /* R.generated.swift */,
 				D05AA5AE208C64F2002DC68C /* Info.plist */,
+				D0A59F5220AAD79D0011173F /* InfoPlist.strings */,
 				D05AA5E7208C8859002DC68C /* Utils.swift */,
 			);
 			path = "Mobile Era";
@@ -337,7 +342,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D04D2018208FB34B005E5A7D /* FilterPopupController.xib in Resources */,
 				D05AA5FD208CDF8A002DC68C /* SessionTableViewCell.xib in Resources */,
 				D05AA5AD208C64F2002DC68C /* LaunchScreen.storyboard in Resources */,
 				D05AA5C9208C7902002DC68C /* Localizable.strings in Resources */,
@@ -346,6 +350,7 @@
 				D0F51F96208D2725000E08AE /* SessionTableViewLegendCell.xib in Resources */,
 				D05AA5AA208C64F2002DC68C /* Assets.xcassets in Resources */,
 				D05AA5A8208C64F1002DC68C /* Main.storyboard in Resources */,
+				D0A59F5020AAD79D0011173F /* InfoPlist.strings in Resources */,
 				D00438EB208DC0E000173602 /* SessionsDetailsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -449,6 +454,7 @@
 				D05763EE208F0E2D0006AB73 /* FilterPopupController.swift in Sources */,
 				D05AA5FE208CDF8A002DC68C /* SessionTableViewCell.swift in Sources */,
 				D05AA5DE208C84B0002DC68C /* Session.swift in Sources */,
+				D0A59F5520AAF1470011173F /* BaseViewController.swift in Sources */,
 				D05AA5A5208C64F1002DC68C /* SpeakersViewController.swift in Sources */,
 				D05AA5E6208C8663002DC68C /* Timeslot.swift in Sources */,
 				D0F51F95208D2725000E08AE /* SessionTableViewLegendCell.swift in Sources */,
@@ -495,6 +501,7 @@
 			children = (
 				D05AA5A7208C64F1002DC68C /* Base */,
 				D05AA5CA208C790C002DC68C /* nb */,
+				D0A59F5720AB07910011173F /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -514,6 +521,15 @@
 				D05AA5CB208C790C002DC68C /* nb */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		D0A59F5220AAD79D0011173F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D0A59F5120AAD79D0011173F /* nb */,
+				D0A59F5320AAD7A30011173F /* en */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

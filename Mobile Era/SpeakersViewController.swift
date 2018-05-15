@@ -9,7 +9,7 @@
 import UIKit
 import Foundation
 
-class SpeakersViewController: UIViewController {
+class SpeakersViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

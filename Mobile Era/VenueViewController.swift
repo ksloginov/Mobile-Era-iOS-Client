@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class VenueViewController: UIViewController {
+class VenueViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()

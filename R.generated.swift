@@ -113,8 +113,14 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 11 images.
+  /// This `R.image` struct is generated, and contains static references to 14 images.
   struct image {
+    /// Image `Add to calendar`.
+    static let addToCalendar = Rswift.ImageResource(bundle: R.hostingBundle, name: "Add to calendar")
+    /// Image `Add to favorites`.
+    static let addToFavorites = Rswift.ImageResource(bundle: R.hostingBundle, name: "Add to favorites")
+    /// Image `Remove from favorites`.
+    static let removeFromFavorites = Rswift.ImageResource(bundle: R.hostingBundle, name: "Remove from favorites")
     /// Image `checkbox-checked`.
     static let checkboxChecked = Rswift.ImageResource(bundle: R.hostingBundle, name: "checkbox-checked")
     /// Image `checkbox-unchecked`.
@@ -137,6 +143,21 @@ struct R: Rswift.Validatable {
     static let star_filled = Rswift.ImageResource(bundle: R.hostingBundle, name: "star_filled")
     /// Image `star`.
     static let star = Rswift.ImageResource(bundle: R.hostingBundle, name: "star")
+    
+    /// `UIImage(named: "Add to calendar", bundle: ..., traitCollection: ...)`
+    static func addToCalendar(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.addToCalendar, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "Add to favorites", bundle: ..., traitCollection: ...)`
+    static func addToFavorites(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.addToFavorites, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "Remove from favorites", bundle: ..., traitCollection: ...)`
+    static func removeFromFavorites(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.removeFromFavorites, compatibleWith: traitCollection)
+    }
     
     /// `UIImage(named: "checkbox-checked", bundle: ..., traitCollection: ...)`
     static func checkboxChecked(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
@@ -196,10 +217,8 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.nib` struct is generated, and contains static references to 5 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 4 nibs.
   struct nib {
-    /// Nib `FilterPopupController`.
-    static let filterPopupController = _R.nib._FilterPopupController()
     /// Nib `SessionTableViewCell`.
     static let sessionTableViewCell = _R.nib._SessionTableViewCell()
     /// Nib `SessionTableViewHeader`.
@@ -208,11 +227,6 @@ struct R: Rswift.Validatable {
     static let sessionTableViewLegendCell = _R.nib._SessionTableViewLegendCell()
     /// Nib `SessionsDetailsViewController`.
     static let sessionsDetailsViewController = _R.nib._SessionsDetailsViewController()
-    
-    /// `UINib(name: "FilterPopupController", in: bundle)`
-    static func filterPopupController(_: Void = ()) -> UIKit.UINib {
-      return UIKit.UINib(resource: R.nib.filterPopupController)
-    }
     
     /// `UINib(name: "SessionTableViewCell", in: bundle)`
     static func sessionTableViewCell(_: Void = ()) -> UIKit.UINib {
@@ -242,8 +256,23 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.segue` struct is generated, and contains static references to 0 view controllers.
+  /// This `R.segue` struct is generated, and contains static references to 1 view controllers.
   struct segue {
+    /// This struct is generated for `ScheduleViewController`, and contains static references to 1 segues.
+    struct scheduleViewController {
+      /// Segue identifier `filterPopupSegue`.
+      static let filterPopupSegue: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, ScheduleViewController, FilterPopupController> = Rswift.StoryboardSegueIdentifier(identifier: "filterPopupSegue")
+      
+      /// Optionally returns a typed version of segue `filterPopupSegue`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func filterPopupSegue(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, ScheduleViewController, FilterPopupController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.scheduleViewController.filterPopupSegue, segue: segue)
+      }
+      
+      fileprivate init() {}
+    }
+    
     fileprivate init() {}
   }
   
@@ -267,14 +296,27 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.string` struct is generated, and contains static references to 2 localization tables.
+  /// This `R.string` struct is generated, and contains static references to 3 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 6 localization keys.
-    struct localizable {
-      /// en translation: Filter
+    /// This `R.string.infoPlist` struct is generated, and contains static references to 1 localization keys.
+    struct infoPlist {
+      /// nb translation: For å legge til et foredrag i kalenderen trenger vi deg til å gi tilgang til det
       /// 
-      /// Locales: en
-      static let filter = Rswift.StringResource(key: "filter", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// Locales: nb, en
+      static let nsCalendarsUsageDescription = Rswift.StringResource(key: "NSCalendarsUsageDescription", tableName: "InfoPlist", bundle: R.hostingBundle, locales: ["nb", "en"], comment: nil)
+      
+      /// nb translation: For å legge til et foredrag i kalenderen trenger vi deg til å gi tilgang til det
+      /// 
+      /// Locales: nb, en
+      static func nsCalendarsUsageDescription(_: Void = ()) -> String {
+        return NSLocalizedString("NSCalendarsUsageDescription", tableName: "InfoPlist", bundle: R.hostingBundle, comment: "")
+      }
+      
+      fileprivate init() {}
+    }
+    
+    /// This `R.string.localizable` struct is generated, and contains static references to 4 localization keys.
+    struct localizable {
       /// en translation: Room
       /// 
       /// Locales: en, nb
@@ -283,10 +325,6 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, nb
       static let schedule = Rswift.StringResource(key: "schedule", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nb"], comment: nil)
-      /// en translation: Show only favorite sessions?
-      /// 
-      /// Locales: en
-      static let only_favorite_sessions = Rswift.StringResource(key: "only_favorite_sessions", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Speakers
       /// 
       /// Locales: en, nb
@@ -295,13 +333,6 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, nb
       static let venue = Rswift.StringResource(key: "venue", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nb"], comment: nil)
-      
-      /// en translation: Filter
-      /// 
-      /// Locales: en
-      static func filter(_: Void = ()) -> String {
-        return NSLocalizedString("filter", bundle: R.hostingBundle, comment: "")
-      }
       
       /// en translation: Room
       /// 
@@ -315,13 +346,6 @@ struct R: Rswift.Validatable {
       /// Locales: en, nb
       static func schedule(_: Void = ()) -> String {
         return NSLocalizedString("schedule", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: Show only favorite sessions?
-      /// 
-      /// Locales: en
-      static func only_favorite_sessions(_: Void = ()) -> String {
-        return NSLocalizedString("only_favorite_sessions", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Speakers
@@ -341,28 +365,72 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    /// This `R.string.main` struct is generated, and contains static references to 10 localization keys.
+    /// This `R.string.main` struct is generated, and contains static references to 23 localization keys.
     struct main {
+      /// en translation: Clear Filters
+      /// 
+      /// Locales: en
+      static let tdDqAXbNormalTitle = Rswift.StringResource(key: "6Td-dq-aXb.normalTitle", tableName: "Main", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Day 1
+      /// 
+      /// Locales: en
+      static let mIdEaRl5SegmentTitles1 = Rswift.StringResource(key: "MId-ea-rl5.segmentTitles[1]", tableName: "Main", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Day 2
+      /// 
+      /// Locales: en
+      static let mIdEaRl5SegmentTitles2 = Rswift.StringResource(key: "MId-ea-rl5.segmentTitles[2]", tableName: "Main", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Information
+      /// 
+      /// Locales: en
+      static let qjrXQY3gTitle = Rswift.StringResource(key: "qjr-xQ-Y3g.title", tableName: "Main", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Information
+      /// 
+      /// Locales: en
+      static let w90Px66mTitle = Rswift.StringResource(key: "w90-px-66m.title", tableName: "Main", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Information
+      /// 
+      /// Locales: en
+      static let woGG8Y5FTitle = Rswift.StringResource(key: "WoG-G8-y5F.title", tableName: "Main", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Information
+      /// 
+      /// Locales: en
+      static let zz7DoNGcTitle = Rswift.StringResource(key: "ZZ7-do-NGc.title", tableName: "Main", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: OK
+      /// 
+      /// Locales: en
+      static let cbF6hULeNormalTitle = Rswift.StringResource(key: "CbF-6h-ULe.normalTitle", tableName: "Main", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Title
+      /// 
+      /// Locales: en
+      static let g5DTKUA6Title = Rswift.StringResource(key: "G5D-tK-UA6.title", tableName: "Main", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Workshops
+      /// 
+      /// Locales: en
+      static let mIdEaRl5SegmentTitles0 = Rswift.StringResource(key: "MId-ea-rl5.segmentTitles[0]", tableName: "Main", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// nb translation: Dagsplan
       /// 
-      /// Locales: nb
-      static let acWDTCKfTitle = Rswift.StringResource(key: "acW-dT-cKf.title", tableName: "Main", bundle: R.hostingBundle, locales: ["nb"], comment: nil)
+      /// Locales: nb, en
+      static let acWDTCKfTitle = Rswift.StringResource(key: "acW-dT-cKf.title", tableName: "Main", bundle: R.hostingBundle, locales: ["nb", "en"], comment: nil)
+      /// nb translation: Filter
+      /// 
+      /// Locales: nb, en
+      static let fEbEAMFLText = Rswift.StringResource(key: "fEb-eA-MFL.text", tableName: "Main", bundle: R.hostingBundle, locales: ["nb", "en"], comment: nil)
       /// nb translation: Foredragsholdere
       /// 
-      /// Locales: nb
-      static let cPaGyQ4nTitle = Rswift.StringResource(key: "cPa-gy-q4n.title", tableName: "Main", bundle: R.hostingBundle, locales: ["nb"], comment: nil)
+      /// Locales: nb, en
+      static let cPaGyQ4nTitle = Rswift.StringResource(key: "cPa-gy-q4n.title", tableName: "Main", bundle: R.hostingBundle, locales: ["nb", "en"], comment: nil)
       /// nb translation: Item
       /// 
-      /// Locales: nb
-      static let fj7XZKvSTitle = Rswift.StringResource(key: "Fj7-XZ-KvS.title", tableName: "Main", bundle: R.hostingBundle, locales: ["nb"], comment: nil)
+      /// Locales: nb, en
+      static let fj7XZKvSTitle = Rswift.StringResource(key: "Fj7-XZ-KvS.title", tableName: "Main", bundle: R.hostingBundle, locales: ["nb", "en"], comment: nil)
       /// nb translation: Item
       /// 
-      /// Locales: nb
-      static let fu3UAVeGTitle = Rswift.StringResource(key: "Fu3-UA-VeG.title", tableName: "Main", bundle: R.hostingBundle, locales: ["nb"], comment: nil)
+      /// Locales: nb, en
+      static let fu3UAVeGTitle = Rswift.StringResource(key: "Fu3-UA-VeG.title", tableName: "Main", bundle: R.hostingBundle, locales: ["nb", "en"], comment: nil)
       /// nb translation: Item
       /// 
-      /// Locales: nb
-      static let xAc3ZTETTitle = Rswift.StringResource(key: "XAc-3Z-TET.title", tableName: "Main", bundle: R.hostingBundle, locales: ["nb"], comment: nil)
+      /// Locales: nb, en
+      static let xAc3ZTETTitle = Rswift.StringResource(key: "XAc-3Z-TET.title", tableName: "Main", bundle: R.hostingBundle, locales: ["nb", "en"], comment: nil)
       /// nb translation: Loaded by FirstViewController
       /// 
       /// Locales: nb
@@ -377,44 +445,129 @@ struct R: Rswift.Validatable {
       static let zEqFUWV5Text = Rswift.StringResource(key: "zEq-FU-wV5.text", tableName: "Main", bundle: R.hostingBundle, locales: ["nb"], comment: nil)
       /// nb translation: Spillested
       /// 
-      /// Locales: nb
-      static let qhNXTVAYTitle = Rswift.StringResource(key: "QhN-xT-vAY.title", tableName: "Main", bundle: R.hostingBundle, locales: ["nb"], comment: nil)
+      /// Locales: nb, en
+      static let qhNXTVAYTitle = Rswift.StringResource(key: "QhN-xT-vAY.title", tableName: "Main", bundle: R.hostingBundle, locales: ["nb", "en"], comment: nil)
+      /// nb translation: Velg emner:
+      /// 
+      /// Locales: nb, en
+      static let lnSX9Ix0Text = Rswift.StringResource(key: "lnS-x9-ix0.text", tableName: "Main", bundle: R.hostingBundle, locales: ["nb", "en"], comment: nil)
       /// nb translation: Venue View
       /// 
       /// Locales: nb
       static let aanFjLO2Text = Rswift.StringResource(key: "aan-fj-lO2.text", tableName: "Main", bundle: R.hostingBundle, locales: ["nb"], comment: nil)
+      /// nb translation: Vis bare favorittforelesninger?
+      /// 
+      /// Locales: nb, en
+      static let poOZqGr7Text = Rswift.StringResource(key: "PoO-Zq-gr7.text", tableName: "Main", bundle: R.hostingBundle, locales: ["nb", "en"], comment: nil)
+      
+      /// en translation: Clear Filters
+      /// 
+      /// Locales: en
+      static func tdDqAXbNormalTitle(_: Void = ()) -> String {
+        return NSLocalizedString("6Td-dq-aXb.normalTitle", tableName: "Main", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Day 1
+      /// 
+      /// Locales: en
+      static func mIdEaRl5SegmentTitles1(_: Void = ()) -> String {
+        return NSLocalizedString("MId-ea-rl5.segmentTitles[1]", tableName: "Main", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Day 2
+      /// 
+      /// Locales: en
+      static func mIdEaRl5SegmentTitles2(_: Void = ()) -> String {
+        return NSLocalizedString("MId-ea-rl5.segmentTitles[2]", tableName: "Main", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Information
+      /// 
+      /// Locales: en
+      static func qjrXQY3gTitle(_: Void = ()) -> String {
+        return NSLocalizedString("qjr-xQ-Y3g.title", tableName: "Main", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Information
+      /// 
+      /// Locales: en
+      static func w90Px66mTitle(_: Void = ()) -> String {
+        return NSLocalizedString("w90-px-66m.title", tableName: "Main", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Information
+      /// 
+      /// Locales: en
+      static func woGG8Y5FTitle(_: Void = ()) -> String {
+        return NSLocalizedString("WoG-G8-y5F.title", tableName: "Main", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Information
+      /// 
+      /// Locales: en
+      static func zz7DoNGcTitle(_: Void = ()) -> String {
+        return NSLocalizedString("ZZ7-do-NGc.title", tableName: "Main", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: OK
+      /// 
+      /// Locales: en
+      static func cbF6hULeNormalTitle(_: Void = ()) -> String {
+        return NSLocalizedString("CbF-6h-ULe.normalTitle", tableName: "Main", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Title
+      /// 
+      /// Locales: en
+      static func g5DTKUA6Title(_: Void = ()) -> String {
+        return NSLocalizedString("G5D-tK-UA6.title", tableName: "Main", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Workshops
+      /// 
+      /// Locales: en
+      static func mIdEaRl5SegmentTitles0(_: Void = ()) -> String {
+        return NSLocalizedString("MId-ea-rl5.segmentTitles[0]", tableName: "Main", bundle: R.hostingBundle, comment: "")
+      }
       
       /// nb translation: Dagsplan
       /// 
-      /// Locales: nb
+      /// Locales: nb, en
       static func acWDTCKfTitle(_: Void = ()) -> String {
         return NSLocalizedString("acW-dT-cKf.title", tableName: "Main", bundle: R.hostingBundle, comment: "")
       }
       
+      /// nb translation: Filter
+      /// 
+      /// Locales: nb, en
+      static func fEbEAMFLText(_: Void = ()) -> String {
+        return NSLocalizedString("fEb-eA-MFL.text", tableName: "Main", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// nb translation: Foredragsholdere
       /// 
-      /// Locales: nb
+      /// Locales: nb, en
       static func cPaGyQ4nTitle(_: Void = ()) -> String {
         return NSLocalizedString("cPa-gy-q4n.title", tableName: "Main", bundle: R.hostingBundle, comment: "")
       }
       
       /// nb translation: Item
       /// 
-      /// Locales: nb
+      /// Locales: nb, en
       static func fj7XZKvSTitle(_: Void = ()) -> String {
         return NSLocalizedString("Fj7-XZ-KvS.title", tableName: "Main", bundle: R.hostingBundle, comment: "")
       }
       
       /// nb translation: Item
       /// 
-      /// Locales: nb
+      /// Locales: nb, en
       static func fu3UAVeGTitle(_: Void = ()) -> String {
         return NSLocalizedString("Fu3-UA-VeG.title", tableName: "Main", bundle: R.hostingBundle, comment: "")
       }
       
       /// nb translation: Item
       /// 
-      /// Locales: nb
+      /// Locales: nb, en
       static func xAc3ZTETTitle(_: Void = ()) -> String {
         return NSLocalizedString("XAc-3Z-TET.title", tableName: "Main", bundle: R.hostingBundle, comment: "")
       }
@@ -442,9 +595,16 @@ struct R: Rswift.Validatable {
       
       /// nb translation: Spillested
       /// 
-      /// Locales: nb
+      /// Locales: nb, en
       static func qhNXTVAYTitle(_: Void = ()) -> String {
         return NSLocalizedString("QhN-xT-vAY.title", tableName: "Main", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// nb translation: Velg emner:
+      /// 
+      /// Locales: nb, en
+      static func lnSX9Ix0Text(_: Void = ()) -> String {
+        return NSLocalizedString("lnS-x9-ix0.text", tableName: "Main", bundle: R.hostingBundle, comment: "")
       }
       
       /// nb translation: Venue View
@@ -452,6 +612,13 @@ struct R: Rswift.Validatable {
       /// Locales: nb
       static func aanFjLO2Text(_: Void = ()) -> String {
         return NSLocalizedString("aan-fj-lO2.text", tableName: "Main", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// nb translation: Vis bare favorittforelesninger?
+      /// 
+      /// Locales: nb, en
+      static func poOZqGr7Text(_: Void = ()) -> String {
+        return NSLocalizedString("PoO-Zq-gr7.text", tableName: "Main", bundle: R.hostingBundle, comment: "")
       }
       
       fileprivate init() {}
@@ -482,22 +649,6 @@ struct _R: Rswift.Validatable {
   struct nib: Rswift.Validatable {
     static func validate() throws {
       try _SessionTableViewCell.validate()
-      try _FilterPopupController.validate()
-    }
-    
-    struct _FilterPopupController: Rswift.NibResourceType, Rswift.Validatable {
-      let bundle = R.hostingBundle
-      let name = "FilterPopupController"
-      
-      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> UIKit.UIView? {
-        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
-      }
-      
-      static func validate() throws {
-        if UIKit.UIImage(named: "checkbox-checked", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'checkbox-checked' is used in nib 'FilterPopupController', but couldn't be loaded.") }
-      }
-      
-      fileprivate init() {}
     }
     
     struct _SessionTableViewCell: Rswift.NibResourceType, Rswift.Validatable {
@@ -580,6 +731,7 @@ struct _R: Rswift.Validatable {
       static func validate() throws {
         if UIKit.UIImage(named: "info") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'info' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "schedule") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'schedule' is used in storyboard 'Main', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "checkbox-checked") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'checkbox-checked' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "map") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'map' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "speaker") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'speaker' is used in storyboard 'Main', but couldn't be loaded.") }
       }

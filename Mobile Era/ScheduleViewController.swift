@@ -11,15 +11,16 @@ import Firebase
 import FirebaseDatabase
 import ObjectMapper
 
-class ScheduleViewController: UIViewController {
+class ScheduleViewController: BaseViewController {
     @IBAction func onSegmentControlValueChanged(_ sender: Any) {
         scheduleSource?.setSelectedDay(daySegmentControl.selectedSegmentIndex)
         tableView.reloadData()
     }
     
-    var filterBtn: UIBarButtonItem?
     @IBOutlet weak var daySegmentControl: UISegmentedControl!
     @IBOutlet weak var tableView: UITableView!
+    
+    private var filterBtn: UIBarButtonItem?
     private var scheduleSource: ScheduleSource?
     
     var database: DatabaseReference!
@@ -39,6 +40,13 @@ class ScheduleViewController: UIViewController {
         tableView.register(SessionTableViewHeader.nib, forHeaderFooterViewReuseIdentifier: SessionTableViewHeader.key)
         tableView.isDirectionalLockEnabled = true
         tableView.separatorStyle = .none
+
+        daySegmentControl.layer.borderColor = R.color.primaryColor()?.cgColor
+        daySegmentControl.layer.cornerRadius = daySegmentControl.frame.height / 2
+        daySegmentControl.layer.borderWidth = 1
+        daySegmentControl.clipsToBounds = true
+        
+        daySegmentControl.setTitleTextAttributes([NSAttributedStringKey.font : UIFont.systemFont(ofSize: 14, weight: .medium)], for: .normal)
         
         loadData()
         
@@ -54,11 +62,13 @@ class ScheduleViewController: UIViewController {
         updateFilterBadgeCount()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        tableView.reloadData()
+    }
+    
     @objc func onFilterClicked() {
-        let filterPopup = FilterPopupController()
-        filterPopup.modalTransitionStyle = .crossDissolve
-        filterPopup.modalPresentationStyle = .overFullScreen
-        present(filterPopup, animated: true, completion: nil)
+        performSegue(withIdentifier: "filterPopupSegue", sender: self)
     }
     
     public func createFilterButton() {

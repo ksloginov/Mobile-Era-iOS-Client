@@ -28,3 +28,14 @@
 
 /* Class = "UILabel"; text = "Speakers View"; ObjectID = "zEq-FU-wV5"; */
 "zEq-FU-wV5.text" = "Speakers View";
+
+/* Class = "UILabel"; text = "Filter"; ObjectID = "fEb-eA-MFL"; */
+"fEb-eA-MFL.text" = "Filter";
+
+/* Class = "UILabel"; text = "Select tags:"; ObjectID = "lnS-x9-ix0"; */
+"lnS-x9-ix0.text" = "Velg emner:";
+
+/* Class = "UILabel"; text = "Show only favorite sessions?"; ObjectID = "PoO-Zq-gr7"; */
+"PoO-Zq-gr7.text" = "Vis bare favorittforelesninger?";
+
+
