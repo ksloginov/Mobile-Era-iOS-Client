@@ -110,10 +110,10 @@
 		D0B9BC75BDC5D4E03B1DF7B5 /* Pods_Mobile_EraUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mobile_EraUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0D5B6BE20A74F9E00163B45 /* SettingsDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDataManager.swift; sourceTree = "<group>"; };
 		D0DBBD5D20B2C8C50091FF21 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
-		D0DBBD5E20B2C8CC0091FF21 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/Main.strings; sourceTree = "<group>"; };
 		D0DBBD5F20B2D59C0091FF21 /* SpeakersDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakersDetailsViewController.swift; sourceTree = "<group>"; };
 		D0DBBD6120B2D5FC0091FF21 /* SpeakersDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SpeakersDetailsViewController.xib; sourceTree = "<group>"; };
 		D0DBBD6320B2E2BC0091FF21 /* InformationPopupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationPopupController.swift; sourceTree = "<group>"; };
+		D0DBBD6620B2EFC80091FF21 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/Main.strings; sourceTree = "<group>"; };
 		D0F51F93208D2725000E08AE /* SessionTableViewLegendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionTableViewLegendCell.swift; sourceTree = "<group>"; };
 		D0F51F94208D2725000E08AE /* SessionTableViewLegendCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SessionTableViewLegendCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -546,7 +546,7 @@
 			children = (
 				D05AA5A7208C64F1002DC68C /* Base */,
 				D0DBBD5D20B2C8C50091FF21 /* en */,
-				D0DBBD5E20B2C8CC0091FF21 /* nb */,
+				D0DBBD6620B2EFC80091FF21 /* nb */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

@@ -67,3 +67,12 @@
 
 /* Class = "UILabel"; text = "Beer Palace\nHolmens gate 3\n0250 Oslo"; ObjectID = "wvn-EB-l7a"; */
 "wvn-EB-l7a.text" = "Beer Palace\nHolmens gate 3\n0250 Oslo";
+
+/* Class = "UILabel"; text = "2018"; ObjectID = "bF9-rx-x1K"; */
+"bF9-rx-x1K.text" = "2018";
+
+/* Class = "UILabel"; text = "Information"; ObjectID = "OEC-ZK-Dq0"; */
+"OEC-ZK-Dq0.text" = "Informasjon";
+
+/* Class = "UIButton"; normalTitle = "OK"; ObjectID = "fpd-kK-QBn"; */
+"fpd-kK-QBn.normalTitle" = "OK";
