@@ -378,8 +378,12 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    /// This `R.string.localizable` struct is generated, and contains static references to 11 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 13 localization keys.
     struct localizable {
+      /// en translation: Can't send an email
+      /// 
+      /// Locales: en, nb
+      static let cant_send_email = Rswift.StringResource(key: "cant_send_email", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nb"], comment: nil)
       /// en translation: Code of Conduct
       /// 
       /// Locales: en, nb
@@ -392,7 +396,7 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, nb
       static let copirights = Rswift.StringResource(key: "copirights", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nb"], comment: nil)
-      /// en translation: Konstantin Loginov (loginov.k@gmail.com)
+      /// en translation: Konstantin Loginov (%@)
       /// 
       /// Locales: en, nb
       static let developer = Rswift.StringResource(key: "developer", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nb"], comment: nil)
@@ -424,6 +428,17 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, nb
       static let venue = Rswift.StringResource(key: "venue", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nb"], comment: nil)
+      /// en translation: loginov.k@gmail.com
+      /// 
+      /// Locales: en, nb
+      static let developers_email = Rswift.StringResource(key: "developers_email", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nb"], comment: nil)
+      
+      /// en translation: Can't send an email
+      /// 
+      /// Locales: en, nb
+      static func cant_send_email(_: Void = ()) -> String {
+        return NSLocalizedString("cant_send_email", bundle: R.hostingBundle, comment: "")
+      }
       
       /// en translation: Code of Conduct
       /// 
@@ -446,11 +461,11 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("copirights", bundle: R.hostingBundle, comment: "")
       }
       
-      /// en translation: Konstantin Loginov (loginov.k@gmail.com)
+      /// en translation: Konstantin Loginov (%@)
       /// 
       /// Locales: en, nb
-      static func developer(_: Void = ()) -> String {
-        return NSLocalizedString("developer", bundle: R.hostingBundle, comment: "")
+      static func developer(_ value1: String) -> String {
+        return String(format: NSLocalizedString("developer", bundle: R.hostingBundle, comment: ""), locale: R.applicationLocale, value1)
       }
       
       /// en translation: Mobile Era Team
@@ -502,10 +517,17 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("venue", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: loginov.k@gmail.com
+      /// 
+      /// Locales: en, nb
+      static func developers_email(_: Void = ()) -> String {
+        return NSLocalizedString("developers_email", bundle: R.hostingBundle, comment: "")
+      }
+      
       fileprivate init() {}
     }
     
-    /// This `R.string.main` struct is generated, and contains static references to 23 localization keys.
+    /// This `R.string.main` struct is generated, and contains static references to 26 localization keys.
     struct main {
       /// en translation: Beer Palace Holmens gate 3 0250 Oslo
       /// 
@@ -599,6 +621,18 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, nb
       static let mIdEaRl5SegmentTitles0 = Rswift.StringResource(key: "MId-ea-rl5.segmentTitles[0]", tableName: "Main", bundle: R.hostingBundle, locales: ["en", "nb"], comment: nil)
+      /// nb translation: 2018
+      /// 
+      /// Locales: nb
+      static let bF9RxX1KText = Rswift.StringResource(key: "bF9-rx-x1K.text", tableName: "Main", bundle: R.hostingBundle, locales: ["nb"], comment: nil)
+      /// nb translation: Informasjon
+      /// 
+      /// Locales: nb
+      static let oeczkDq0Text = Rswift.StringResource(key: "OEC-ZK-Dq0.text", tableName: "Main", bundle: R.hostingBundle, locales: ["nb"], comment: nil)
+      /// nb translation: OK
+      /// 
+      /// Locales: nb
+      static let fpdKKQBnNormalTitle = Rswift.StringResource(key: "fpd-kK-QBn.normalTitle", tableName: "Main", bundle: R.hostingBundle, locales: ["nb"], comment: nil)
       
       /// en translation: Beer Palace Holmens gate 3 0250 Oslo
       /// 
@@ -759,6 +793,27 @@ struct R: Rswift.Validatable {
       /// Locales: en, nb
       static func mIdEaRl5SegmentTitles0(_: Void = ()) -> String {
         return NSLocalizedString("MId-ea-rl5.segmentTitles[0]", tableName: "Main", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// nb translation: 2018
+      /// 
+      /// Locales: nb
+      static func bF9RxX1KText(_: Void = ()) -> String {
+        return NSLocalizedString("bF9-rx-x1K.text", tableName: "Main", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// nb translation: Informasjon
+      /// 
+      /// Locales: nb
+      static func oeczkDq0Text(_: Void = ()) -> String {
+        return NSLocalizedString("OEC-ZK-Dq0.text", tableName: "Main", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// nb translation: OK
+      /// 
+      /// Locales: nb
+      static func fpdKKQBnNormalTitle(_: Void = ()) -> String {
+        return NSLocalizedString("fpd-kK-QBn.normalTitle", tableName: "Main", bundle: R.hostingBundle, comment: "")
       }
       
       fileprivate init() {}

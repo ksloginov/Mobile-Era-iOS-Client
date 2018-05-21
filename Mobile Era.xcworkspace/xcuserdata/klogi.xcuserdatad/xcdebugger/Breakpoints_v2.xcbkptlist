@@ -106,7 +106,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Mobile Era/SessionsDetailsViewController.swift"
-            timestampString = "548597637.779783"
+            timestampString = "548598139.0253789"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "61"
@@ -122,12 +122,12 @@
                   moduleName = "Mobile Era"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/klogi/Development/iOS/Mobile%20Era/Mobile%20Era/SessionsDetailsViewController.swift"
-                  timestampString = "548597637.909622"
+                  timestampString = "548599873.450382"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "61"
                   endingLineNumber = "61"
-                  offsetFromSymbolStart = "15">
+                  offsetFromSymbolStart = "20">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -137,7 +137,7 @@
                   moduleName = "Mobile Era"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/klogi/Development/iOS/Mobile%20Era/Mobile%20Era/SessionsDetailsViewController.swift"
-                  timestampString = "548597637.911786"
+                  timestampString = "548599873.452154"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "61"
@@ -145,22 +145,6 @@
                   offsetFromSymbolStart = "28">
                </Location>
             </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Mobile Era/InformationPopupController.swift"
-            timestampString = "548597637.779847"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "78"
-            endingLineNumber = "78"
-            landmarkName = "textView(_:shouldInteractWith:in:interaction:)"
-            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

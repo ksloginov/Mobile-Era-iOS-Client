@@ -12,8 +12,10 @@
 "room" = "Rom";
 "copied" = "Adressen kopierte til utklippstavlen";
 "copirights" = "Utviklet med ❤️";
-"developer" = "Konstantin Loginov (loginov.k@gmail.com)";
+"developers_email" = "loginov.k@gmail.com";
+"developer" = "Konstantin Loginov (%@)";
 "sponsors" = "Sponsorer";
 "codeofconduct" = "Adferdskodeks";
 "mobileera_team" = "Mobile Era Laget";
 "contact_us" = "Kontakt oss";
+"cant_send_email" = "Kan ikke sende en e-post";

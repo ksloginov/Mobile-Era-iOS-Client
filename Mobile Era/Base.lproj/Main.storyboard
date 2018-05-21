@@ -352,65 +352,70 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="mRQ-R1-wVJ">
                                         <rect key="frame" x="15" y="51" width="226" height="125"/>
                                         <subviews>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aLJ-dB-aTu">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="aLJ-dB-aTu">
                                                 <rect key="frame" x="0.0" y="0.0" width="226" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="VFh-Do-32s"/>
                                                 </constraints>
                                                 <color key="textColor" name="Primary Text Color"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" secureTextEntry="YES"/>
+                                                <dataDetectorType key="dataDetectorTypes" link="YES" address="YES"/>
                                             </textView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gAX-6b-CP7">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="gAX-6b-CP7">
                                                 <rect key="frame" x="0.0" y="35" width="226" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="Rft-ht-Dgg"/>
                                                 </constraints>
                                                 <color key="textColor" name="Primary Text Color"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" secureTextEntry="YES"/>
+                                                <dataDetectorType key="dataDetectorTypes" link="YES" address="YES"/>
                                             </textView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mfn-V0-cTt">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="mfn-V0-cTt">
                                                 <rect key="frame" x="0.0" y="70" width="226" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="eLs-1s-LNv"/>
                                                 </constraints>
                                                 <color key="textColor" name="Primary Text Color"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" secureTextEntry="YES"/>
+                                                <dataDetectorType key="dataDetectorTypes" link="YES" address="YES"/>
                                             </textView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mmY-47-dWE">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="mmY-47-dWE">
                                                 <rect key="frame" x="0.0" y="105" width="226" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="e89-ns-Ytp"/>
                                                 </constraints>
                                                 <color key="textColor" name="Primary Text Color"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" secureTextEntry="YES"/>
+                                                <dataDetectorType key="dataDetectorTypes" link="YES" address="YES"/>
                                             </textView>
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4EY-BX-XLT">
-                                        <rect key="frame" x="128.5" y="231.5" width="0.0" height="0.0"/>
+                                        <rect key="frame" x="128.5" y="227" width="0.0" height="0.0"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                         <color key="textColor" name="Secondary Text Color"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FUl-cP-diH">
-                                        <rect key="frame" x="0.0" y="231.5" width="256" height="18"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2018" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bF9-rx-x1K">
+                                        <rect key="frame" x="113" y="251" width="29" height="14.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                                        <color key="textColor" name="Secondary Text Color"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="FUl-cP-diH">
+                                        <rect key="frame" x="0.0" y="223" width="256" height="24"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="18" id="sCG-WG-ygi"/>
+                                            <constraint firstAttribute="height" constant="24" id="sCG-WG-ygi"/>
                                         </constraints>
                                         <color key="textColor" name="Secondary Text Color"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <dataDetectorType key="dataDetectorTypes" link="YES" address="YES"/>
                                     </textView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2018" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bF9-rx-x1K">
-                                        <rect key="frame" x="113.5" y="251.5" width="29" height="14.5"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
-                                        <color key="textColor" name="Secondary Text Color"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <view alpha="0.20000000298023224" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OK0-nP-HqZ">
                                         <rect key="frame" x="0.0" y="274" width="256" height="1"/>
                                         <color key="backgroundColor" name="Secondary Text Color"/>
@@ -440,7 +445,7 @@
                                     <constraint firstItem="mRQ-R1-wVJ" firstAttribute="centerX" secondItem="Ld0-jB-yKY" secondAttribute="centerX" id="7hZ-uJ-alq"/>
                                     <constraint firstItem="OK0-nP-HqZ" firstAttribute="top" secondItem="bF9-rx-x1K" secondAttribute="bottom" constant="8" id="8CY-a8-UYz"/>
                                     <constraint firstItem="OK0-nP-HqZ" firstAttribute="width" secondItem="fpd-kK-QBn" secondAttribute="width" id="9bm-jq-q2b"/>
-                                    <constraint firstItem="FUl-cP-diH" firstAttribute="top" secondItem="4EY-BX-XLT" secondAttribute="bottom" id="AI0-FW-TIf"/>
+                                    <constraint firstItem="FUl-cP-diH" firstAttribute="top" secondItem="4EY-BX-XLT" secondAttribute="bottom" constant="-4" id="AI0-FW-TIf"/>
                                     <constraint firstItem="OEC-ZK-Dq0" firstAttribute="centerX" secondItem="Ld0-jB-yKY" secondAttribute="centerX" id="HwW-YJ-UGD"/>
                                     <constraint firstItem="OK0-nP-HqZ" firstAttribute="centerX" secondItem="fpd-kK-QBn" secondAttribute="centerX" id="QmX-hc-ZBs"/>
                                     <constraint firstItem="OEC-ZK-Dq0" firstAttribute="top" secondItem="Ld0-jB-yKY" secondAttribute="top" constant="15" id="SJu-Kq-O7G"/>
@@ -452,7 +457,7 @@
                                     <constraint firstItem="fpd-kK-QBn" firstAttribute="centerX" secondItem="Ld0-jB-yKY" secondAttribute="centerX" id="oEg-Iq-AYr"/>
                                     <constraint firstItem="4EY-BX-XLT" firstAttribute="centerX" secondItem="FUl-cP-diH" secondAttribute="centerX" id="pcN-sw-EqU"/>
                                     <constraint firstAttribute="bottom" secondItem="fpd-kK-QBn" secondAttribute="bottom" id="qDP-ef-UDD"/>
-                                    <constraint firstItem="bF9-rx-x1K" firstAttribute="top" secondItem="FUl-cP-diH" secondAttribute="bottom" constant="2" id="tIy-4U-JLM"/>
+                                    <constraint firstItem="bF9-rx-x1K" firstAttribute="top" secondItem="FUl-cP-diH" secondAttribute="bottom" constant="4" id="tIy-4U-JLM"/>
                                     <constraint firstItem="fpd-kK-QBn" firstAttribute="width" secondItem="Ld0-jB-yKY" secondAttribute="width" id="ufQ-XV-H5H"/>
                                     <constraint firstAttribute="height" constant="320" id="vp0-yR-2lD"/>
                                     <constraint firstAttribute="trailing" secondItem="mRQ-R1-wVJ" secondAttribute="trailing" constant="15" id="yfJ-vq-7Re"/>

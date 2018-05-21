@@ -8,8 +8,10 @@
 
 import Foundation
 import UIKit
+import Toaster
+import MessageUI
 
-class InformationPopupController: UIViewController, UITextViewDelegate {
+class InformationPopupController: UIViewController, UITextViewDelegate, MFMailComposeViewControllerDelegate {
     
     @IBAction func onDismissPopupClicked(_ sender: Any) {
         dismiss(animated: true, completion: nil)
@@ -65,8 +67,8 @@ class InformationPopupController: UIViewController, UITextViewDelegate {
         
         lblCopyrights.text = R.string.localizable.copirights()
 
-        let developerString = NSMutableAttributedString(string: R.string.localizable.developer())
-        developerString.addAttributes([.link: "https://2017.mobileera.rocks/team/",
+        let developerString = NSMutableAttributedString(string: R.string.localizable.developer(R.string.localizable.developers_email()))
+        developerString.addAttributes([.link: R.string.localizable.developers_email(),
                                   .paragraphStyle: paragraphStyle,
                                   .font: UIFont.systemFont(ofSize: 12, weight: .medium)], range: NSRange(location: 0, length: developerString.length))
         lblDeveloper.attributedText = developerString
@@ -74,8 +76,31 @@ class InformationPopupController: UIViewController, UITextViewDelegate {
         
     }
     
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
+    }
+    
     func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
+        if isValidEmail(URL.absoluteString) {
+            if MFMailComposeViewController.canSendMail() {
+                let mailController = MFMailComposeViewController ()
+                mailController.mailComposeDelegate = self
+                mailController.setToRecipients ([URL.absoluteString])
+                present(mailController, animated: true, completion: nil)
+            } else {
+                Toast(text: R.string.localizable.cant_send_email(), duration: Delay.short).show()
+            }
+
+            return false
+        }
+        
         UIApplication.shared.open(URL, options: [:])
         return false
+    }
+    
+    func isValidEmail(_ testStr:String) -> Bool {
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailTest.evaluate(with: testStr)
     }
 }
