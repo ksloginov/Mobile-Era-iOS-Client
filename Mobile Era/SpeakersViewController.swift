@@ -39,11 +39,19 @@ class SpeakersViewController: BaseViewController {
     private func loadData() {
         database.observe(.value) { [weak self] (snapshot) in
             guard
-                let speakers = Mapper<Speaker>().mapArray(JSONObject: snapshot.childSnapshot(forPath: "speakers").value) else {
+                var speakers = Mapper<Speaker>().mapArray(JSONObject: snapshot.childSnapshot(forPath: "speakers").value),
+                let instructors = Mapper<Speaker>().mapArray(JSONObject: snapshot.childSnapshot(forPath: "instructors").value) else {
                     print("Error parsing data from Firebase")
                     return
             }
 
+            for instructor in instructors {
+                // Minor hack to avoid data-duplication: in ME-db, instructors have different IDs (i.e. we have 2 "copies" of Wei Meng or Svetlana. With 2XX and 3XX ids each)
+                if !speakers.contains(where: {$0.name == instructor.name}) {
+                    speakers.append(instructor)
+                }
+            }
+            
             self?.speakersSource?.setData(speakers)
             self?.tableView.reloadData()
         }

@@ -81,7 +81,6 @@
 		D05AA5B9208C64F2002DC68C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D05AA5C2208C6AB2002DC68C /* VenueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueViewController.swift; sourceTree = "<group>"; };
 		D05AA5C8208C7902002DC68C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		D05AA5CA208C790C002DC68C /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/Main.strings; sourceTree = "<group>"; };
 		D05AA5CB208C790C002DC68C /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D05AA5CE208C7A9A002DC68C /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		D05AA5D4208C8152002DC68C /* ScheduleSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleSource.swift; sourceTree = "<group>"; };
@@ -102,12 +101,13 @@
 		D0A59F5120AAD79D0011173F /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D0A59F5320AAD7A30011173F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D0A59F5420AAF1470011173F /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
-		D0A59F5720AB07910011173F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		D0A59F5A20AB7ECF0011173F /* SpeakerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SpeakerTableViewCell.swift; path = Cells/SpeakerTableViewCell.swift; sourceTree = "<group>"; };
 		D0A59F5B20AB7ECF0011173F /* SpeakerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SpeakerTableViewCell.xib; path = Cells/SpeakerTableViewCell.xib; sourceTree = "<group>"; };
 		D0A59F5E20AB83D90011173F /* SpeakersSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakersSource.swift; sourceTree = "<group>"; };
 		D0B9BC75BDC5D4E03B1DF7B5 /* Pods_Mobile_EraUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mobile_EraUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0D5B6BE20A74F9E00163B45 /* SettingsDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDataManager.swift; sourceTree = "<group>"; };
+		D0DBBD5D20B2C8C50091FF21 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		D0DBBD5E20B2C8CC0091FF21 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/Main.strings; sourceTree = "<group>"; };
 		D0F51F93208D2725000E08AE /* SessionTableViewLegendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionTableViewLegendCell.swift; sourceTree = "<group>"; };
 		D0F51F94208D2725000E08AE /* SessionTableViewLegendCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SessionTableViewLegendCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -384,12 +384,10 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Mobile Era/Pods-Mobile Era-resources.sh",
 				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
-				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -421,6 +419,7 @@
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/Toaster/Toaster.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -431,6 +430,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toaster.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -533,8 +533,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				D05AA5A7208C64F1002DC68C /* Base */,
-				D05AA5CA208C790C002DC68C /* nb */,
-				D0A59F5720AB07910011173F /* en */,
+				D0DBBD5D20B2C8C50091FF21 /* en */,
+				D0DBBD5E20B2C8CC0091FF21 /* nb */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

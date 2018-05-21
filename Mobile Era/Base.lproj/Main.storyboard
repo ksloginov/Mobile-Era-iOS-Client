@@ -380,7 +380,7 @@
                                 <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="NuW-pH-VCb">
-                                        <rect key="frame" x="15" y="0.0" width="290" height="226.5"/>
+                                        <rect key="frame" x="15" y="0.0" width="290" height="599"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Venue" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BYb-W2-cqP">
                                                 <rect key="frame" x="0.0" y="0.0" width="290" height="19.5"/>
@@ -388,8 +388,39 @@
                                                 <color key="textColor" name="Primary Text Color"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aF5-DO-2ws">
+                                                <rect key="frame" x="0.0" y="34.5" width="290" height="50.5"/>
+                                                <string key="text">Felix Konferansesenter
+Bryggetorget 3
+0250 Oslo</string>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                                <color key="textColor" name="Secondary Text Color"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pwf-UE-136">
+                                                <rect key="frame" x="0.0" y="100" width="290" height="192"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="192" id="8en-OH-HBx"/>
+                                                </constraints>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Party Venue" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AgH-9O-Jeb">
+                                                <rect key="frame" x="0.0" y="307" width="290" height="19.5"/>
+                                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="16"/>
+                                                <color key="textColor" name="Primary Text Color"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wvn-EB-l7a">
+                                                <rect key="frame" x="0.0" y="341.5" width="290" height="50.5"/>
+                                                <string key="text">Beer Palace
+Holmens gate 3
+0250 Oslo</string>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                                <color key="textColor" name="Secondary Text Color"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BaX-oA-c52">
-                                                <rect key="frame" x="0.0" y="34.5" width="290" height="192"/>
+                                                <rect key="frame" x="0.0" y="407" width="290" height="192"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="192" id="DEF-Wt-Pmj"/>
@@ -397,12 +428,42 @@
                                             </view>
                                         </subviews>
                                     </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fQ0-Er-fFy">
+                                        <rect key="frame" x="273" y="44" width="32" height="32"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="32" id="PZK-fs-OOx"/>
+                                            <constraint firstAttribute="height" constant="32" id="k7p-pu-hI5"/>
+                                        </constraints>
+                                        <color key="tintColor" name="Primary Color"/>
+                                        <inset key="contentEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
+                                        <state key="normal" image="copy"/>
+                                        <connections>
+                                            <action selector="onCopyVenueClicked:" destination="Rvq-pZ-e3V" eventType="touchUpInside" id="RNT-KF-9ER"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="56X-nN-qY6">
+                                        <rect key="frame" x="273" y="351" width="32" height="32"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="32" id="ZdY-R6-FjL"/>
+                                            <constraint firstAttribute="width" constant="32" id="amg-gf-nwn"/>
+                                        </constraints>
+                                        <color key="tintColor" name="Primary Color"/>
+                                        <inset key="contentEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
+                                        <state key="normal" image="copy"/>
+                                        <connections>
+                                            <action selector="onCopyPartyClicked:" destination="Rvq-pZ-e3V" eventType="touchUpInside" id="3D2-lq-zoP"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="fQ0-Er-fFy" firstAttribute="trailing" secondItem="aF5-DO-2ws" secondAttribute="trailing" id="WXp-gO-kj0"/>
+                                    <constraint firstItem="56X-nN-qY6" firstAttribute="centerY" secondItem="wvn-EB-l7a" secondAttribute="centerY" id="eVT-x1-PPL"/>
                                     <constraint firstAttribute="bottom" secondItem="NuW-pH-VCb" secondAttribute="bottom" id="gXZ-ja-2QO"/>
                                     <constraint firstAttribute="trailing" secondItem="BaX-oA-c52" secondAttribute="trailing" constant="15" id="meM-lX-WHF"/>
                                     <constraint firstItem="BaX-oA-c52" firstAttribute="leading" secondItem="74R-om-GTk" secondAttribute="leading" constant="15" id="nPr-3P-kBj"/>
+                                    <constraint firstItem="fQ0-Er-fFy" firstAttribute="centerY" secondItem="aF5-DO-2ws" secondAttribute="centerY" id="nau-aU-TgT"/>
                                     <constraint firstItem="NuW-pH-VCb" firstAttribute="top" secondItem="74R-om-GTk" secondAttribute="top" id="o28-5x-5kP"/>
+                                    <constraint firstItem="56X-nN-qY6" firstAttribute="trailing" secondItem="wvn-EB-l7a" secondAttribute="trailing" id="ptV-zc-1s3"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -426,9 +487,14 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="mapContainer" destination="BaX-oA-c52" id="7I8-tg-9L7"/>
+                        <outlet property="btnPartyCopy" destination="56X-nN-qY6" id="4r6-AJ-W5q"/>
+                        <outlet property="btnVenueCopy" destination="fQ0-Er-fFy" id="GsA-zj-dKu"/>
+                        <outlet property="lblParty" destination="wvn-EB-l7a" id="R5a-iX-Lxw"/>
+                        <outlet property="lblVenue" destination="aF5-DO-2ws" id="nPN-zf-6se"/>
+                        <outlet property="partyMapContainer" destination="BaX-oA-c52" id="nDd-0l-jXM"/>
                         <outlet property="scrollView" destination="74R-om-GTk" id="EzX-7l-aZM"/>
                         <outlet property="stackView" destination="NuW-pH-VCb" id="6CA-Fz-kVf"/>
+                        <outlet property="venueMapContainer" destination="Pwf-UE-136" id="fSR-76-umH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NTt-NL-qEM" sceneMemberID="firstResponder"/>
@@ -452,10 +518,14 @@
     </scenes>
     <resources>
         <image name="checkbox-checked" width="16" height="16"/>
+        <image name="copy" width="16" height="16"/>
         <image name="info" width="22" height="22"/>
         <image name="map" width="23" height="23"/>
         <image name="schedule" width="23" height="23"/>
         <image name="speaker" width="23" height="23"/>
+        <namedColor name="Primary Color">
+            <color red="0.17254901960784313" green="0.34509803921568627" blue="0.63137254901960782" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="Primary Color">
             <color red="0.17254901960784313" green="0.34509803921568627" blue="0.63137254901960782" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -464,6 +534,12 @@
         </namedColor>
         <namedColor name="Primary Text Color">
             <color red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Secondary Text Color">
+            <color red="0.56470588239999997" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Secondary Text Color">
+            <color red="0.56470588235294117" green="0.60784313725490191" blue="0.60784313725490191" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Secondary Text Color">
             <color red="0.56470588239999997" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

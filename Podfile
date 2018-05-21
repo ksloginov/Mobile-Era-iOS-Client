@@ -11,6 +11,7 @@ target 'Mobile Era' do
   pod 'Firebase/Core'
   pod 'Firebase/Database'
   pod 'GoogleMaps'
+  pod 'Toaster'
 
   # Pods for Mobile Era
 

@@ -109,6 +109,7 @@ class ScheduleViewController: BaseViewController {
         database.observe(.value) { [weak self] (snapshot) in
             guard
                 let speakers = Mapper<Speaker>().mapArray(JSONObject: snapshot.childSnapshot(forPath: "speakers").value),
+                let instructors = Mapper<Speaker>().mapArray(JSONObject: snapshot.childSnapshot(forPath: "instructors").value),
                 let sessionsDictionary = Mapper<Session>().mapDictionary(JSONObject: snapshot.childSnapshot(forPath: "sessions").value),
                 let workshopsDictionary = Mapper<Session>().mapDictionary(JSONObject: snapshot.childSnapshot(forPath: "workshops").value),
                 let schedule = Mapper<Day>().mapArray(JSONObject: snapshot.childSnapshot(forPath: "schedule").value) else {
@@ -122,7 +123,8 @@ class ScheduleViewController: BaseViewController {
             for session in sessions {
                 var joinedSpeakerList: [Speaker] = []
                 for id in session.speakerIds {
-                    if let joinedSpeaker = speakers.first(where: {$0.id == id}) {
+                    let speakersPool = session.isWorkshop ? instructors : speakers
+                    if let joinedSpeaker = speakersPool.first(where: {$0.id == id}) {
                         joinedSpeakerList.append(joinedSpeaker)
                     }
                 }
