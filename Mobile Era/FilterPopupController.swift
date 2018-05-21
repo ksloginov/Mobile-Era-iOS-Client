@@ -10,8 +10,7 @@ import Foundation
 import UIKit
 
 class FilterPopupController: UIViewController {
-    
-    @IBOutlet weak var lblFilter: UILabel!
+
     @IBOutlet weak var imgOnlyFavorites: UIImageView!
     @IBOutlet weak var btnClearFilter: UIButton!
     @IBOutlet weak var btnOk: UIButton!

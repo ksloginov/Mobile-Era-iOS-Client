@@ -378,8 +378,28 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    /// This `R.string.localizable` struct is generated, and contains static references to 5 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 11 localization keys.
     struct localizable {
+      /// en translation: Code of Conduct
+      /// 
+      /// Locales: en, nb
+      static let codeofconduct = Rswift.StringResource(key: "codeofconduct", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nb"], comment: nil)
+      /// en translation: Contact us
+      /// 
+      /// Locales: en, nb
+      static let contact_us = Rswift.StringResource(key: "contact_us", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nb"], comment: nil)
+      /// en translation: Developed with ❤️
+      /// 
+      /// Locales: en, nb
+      static let copirights = Rswift.StringResource(key: "copirights", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nb"], comment: nil)
+      /// en translation: Konstantin Loginov (loginov.k@gmail.com)
+      /// 
+      /// Locales: en, nb
+      static let developer = Rswift.StringResource(key: "developer", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nb"], comment: nil)
+      /// en translation: Mobile Era Team
+      /// 
+      /// Locales: en, nb
+      static let mobileera_team = Rswift.StringResource(key: "mobileera_team", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nb"], comment: nil)
       /// en translation: Room
       /// 
       /// Locales: en, nb
@@ -392,6 +412,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, nb
       static let speakers = Rswift.StringResource(key: "speakers", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nb"], comment: nil)
+      /// en translation: Sponsors
+      /// 
+      /// Locales: en, nb
+      static let sponsors = Rswift.StringResource(key: "sponsors", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nb"], comment: nil)
       /// en translation: The address copied to the clipboard
       /// 
       /// Locales: en, nb
@@ -400,6 +424,41 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, nb
       static let venue = Rswift.StringResource(key: "venue", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "nb"], comment: nil)
+      
+      /// en translation: Code of Conduct
+      /// 
+      /// Locales: en, nb
+      static func codeofconduct(_: Void = ()) -> String {
+        return NSLocalizedString("codeofconduct", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Contact us
+      /// 
+      /// Locales: en, nb
+      static func contact_us(_: Void = ()) -> String {
+        return NSLocalizedString("contact_us", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Developed with ❤️
+      /// 
+      /// Locales: en, nb
+      static func copirights(_: Void = ()) -> String {
+        return NSLocalizedString("copirights", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Konstantin Loginov (loginov.k@gmail.com)
+      /// 
+      /// Locales: en, nb
+      static func developer(_: Void = ()) -> String {
+        return NSLocalizedString("developer", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Mobile Era Team
+      /// 
+      /// Locales: en, nb
+      static func mobileera_team(_: Void = ()) -> String {
+        return NSLocalizedString("mobileera_team", bundle: R.hostingBundle, comment: "")
+      }
       
       /// en translation: Room
       /// 
@@ -420,6 +479,13 @@ struct R: Rswift.Validatable {
       /// Locales: en, nb
       static func speakers(_: Void = ()) -> String {
         return NSLocalizedString("speakers", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Sponsors
+      /// 
+      /// Locales: en, nb
+      static func sponsors(_: Void = ()) -> String {
+        return NSLocalizedString("sponsors", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: The address copied to the clipboard
