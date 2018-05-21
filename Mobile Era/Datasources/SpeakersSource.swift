@@ -33,6 +33,10 @@ class SpeakersSource: NSObject, UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        if let speaker = speakers[safe: indexPath.section]?[safe: indexPath.row] {
+             vc?.navigationController?.pushViewController(SpeakersDetailsViewController(speaker: speaker), animated: true)
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

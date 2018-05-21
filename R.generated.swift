@@ -113,7 +113,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 18 images.
+  /// This `R.image` struct is generated, and contains static references to 21 images.
   struct image {
     /// Image `Add to calendar`.
     static let addToCalendar = Rswift.ImageResource(bundle: R.hostingBundle, name: "Add to calendar")
@@ -129,6 +129,8 @@ struct R: Rswift.Validatable {
     static let copy = Rswift.ImageResource(bundle: R.hostingBundle, name: "copy")
     /// Image `filter`.
     static let filter = Rswift.ImageResource(bundle: R.hostingBundle, name: "filter")
+    /// Image `github-btn`.
+    static let githubBtn = Rswift.ImageResource(bundle: R.hostingBundle, name: "github-btn")
     /// Image `github`.
     static let github = Rswift.ImageResource(bundle: R.hostingBundle, name: "github")
     /// Image `info`.
@@ -147,8 +149,12 @@ struct R: Rswift.Validatable {
     static let star_filled = Rswift.ImageResource(bundle: R.hostingBundle, name: "star_filled")
     /// Image `star`.
     static let star = Rswift.ImageResource(bundle: R.hostingBundle, name: "star")
+    /// Image `twitter-btn`.
+    static let twitterBtn = Rswift.ImageResource(bundle: R.hostingBundle, name: "twitter-btn")
     /// Image `twitter`.
     static let twitter = Rswift.ImageResource(bundle: R.hostingBundle, name: "twitter")
+    /// Image `website-btn`.
+    static let websiteBtn = Rswift.ImageResource(bundle: R.hostingBundle, name: "website-btn")
     /// Image `website`.
     static let website = Rswift.ImageResource(bundle: R.hostingBundle, name: "website")
     
@@ -190,6 +196,11 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "github", bundle: ..., traitCollection: ...)`
     static func github(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.github, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "github-btn", bundle: ..., traitCollection: ...)`
+    static func githubBtn(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.githubBtn, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "info", bundle: ..., traitCollection: ...)`
@@ -237,15 +248,25 @@ struct R: Rswift.Validatable {
       return UIKit.UIImage(resource: R.image.twitter, compatibleWith: traitCollection)
     }
     
+    /// `UIImage(named: "twitter-btn", bundle: ..., traitCollection: ...)`
+    static func twitterBtn(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.twitterBtn, compatibleWith: traitCollection)
+    }
+    
     /// `UIImage(named: "website", bundle: ..., traitCollection: ...)`
     static func website(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.website, compatibleWith: traitCollection)
     }
     
+    /// `UIImage(named: "website-btn", bundle: ..., traitCollection: ...)`
+    static func websiteBtn(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.websiteBtn, compatibleWith: traitCollection)
+    }
+    
     fileprivate init() {}
   }
   
-  /// This `R.nib` struct is generated, and contains static references to 5 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 6 nibs.
   struct nib {
     /// Nib `SessionTableViewCell`.
     static let sessionTableViewCell = _R.nib._SessionTableViewCell()
@@ -257,6 +278,8 @@ struct R: Rswift.Validatable {
     static let sessionsDetailsViewController = _R.nib._SessionsDetailsViewController()
     /// Nib `SpeakerTableViewCell`.
     static let speakerTableViewCell = _R.nib._SpeakerTableViewCell()
+    /// Nib `SpeakersDetailsViewController`.
+    static let speakersDetailsViewController = _R.nib._SpeakersDetailsViewController()
     
     /// `UINib(name: "SessionTableViewCell", in: bundle)`
     static func sessionTableViewCell(_: Void = ()) -> UIKit.UINib {
@@ -281,6 +304,11 @@ struct R: Rswift.Validatable {
     /// `UINib(name: "SpeakerTableViewCell", in: bundle)`
     static func speakerTableViewCell(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.speakerTableViewCell)
+    }
+    
+    /// `UINib(name: "SpeakersDetailsViewController", in: bundle)`
+    static func speakersDetailsViewController(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.speakersDetailsViewController)
     }
     
     fileprivate init() {}
@@ -696,6 +724,7 @@ struct _R: Rswift.Validatable {
     static func validate() throws {
       try _SpeakerTableViewCell.validate()
       try _SessionTableViewCell.validate()
+      try _SpeakersDetailsViewController.validate()
     }
     
     struct _SessionTableViewCell: Rswift.NibResourceType, Rswift.Validatable {
@@ -758,6 +787,23 @@ struct _R: Rswift.Validatable {
         if UIKit.UIImage(named: "website", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'website' is used in nib 'SpeakerTableViewCell', but couldn't be loaded.") }
         if UIKit.UIImage(named: "twitter", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'twitter' is used in nib 'SpeakerTableViewCell', but couldn't be loaded.") }
         if UIKit.UIImage(named: "github", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'github' is used in nib 'SpeakerTableViewCell', but couldn't be loaded.") }
+      }
+      
+      fileprivate init() {}
+    }
+    
+    struct _SpeakersDetailsViewController: Rswift.NibResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "SpeakersDetailsViewController"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+      
+      static func validate() throws {
+        if UIKit.UIImage(named: "twitter-btn", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'twitter-btn' is used in nib 'SpeakersDetailsViewController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "website-btn", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'website-btn' is used in nib 'SpeakersDetailsViewController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "github-btn", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'github-btn' is used in nib 'SpeakersDetailsViewController', but couldn't be loaded.") }
       }
       
       fileprivate init() {}
