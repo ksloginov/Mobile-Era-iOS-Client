@@ -13,6 +13,7 @@ class SpeakersSource: NSObject, UITableViewDataSource, UITableViewDelegate {
     
     public var speakers: [[Speaker]] = []
     public var index: [String] = []
+    public var showIndex: Bool = true
     
     private weak var vc: UIViewController?
     
@@ -39,7 +40,11 @@ class SpeakersSource: NSObject, UITableViewDataSource, UITableViewDelegate {
     }
     
     func sectionIndexTitles(for tableView: UITableView) -> [String]? {
-        return index
+        if showIndex {
+            return index
+        }
+        
+        return nil
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

@@ -10,6 +10,7 @@ target 'Mobile Era' do
   pod 'R.swift'
   pod 'Firebase/Core'
   pod 'Firebase/Database'
+  pod 'GoogleMaps'
 
   # Pods for Mobile Era
 

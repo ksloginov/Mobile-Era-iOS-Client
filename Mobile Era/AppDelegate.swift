@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GoogleMaps
 import Firebase
 import FirebaseDatabase
 
@@ -19,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
         Database.database().isPersistenceEnabled = true
+        GMSServices.provideAPIKey("AIzaSyBsjUHSxEaVtIS90m7h8E030QmTo-U0c0Y")
         return true
     }
 

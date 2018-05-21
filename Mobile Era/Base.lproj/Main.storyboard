@@ -375,7 +375,46 @@
                     <view key="view" contentMode="scaleToFill" id="g4b-iw-jW4">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="74R-om-GTk">
+                                <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="NuW-pH-VCb">
+                                        <rect key="frame" x="15" y="0.0" width="290" height="226.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Venue" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BYb-W2-cqP">
+                                                <rect key="frame" x="0.0" y="0.0" width="290" height="19.5"/>
+                                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="16"/>
+                                                <color key="textColor" name="Primary Text Color"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BaX-oA-c52">
+                                                <rect key="frame" x="0.0" y="34.5" width="290" height="192"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="192" id="DEF-Wt-Pmj"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="NuW-pH-VCb" secondAttribute="bottom" id="gXZ-ja-2QO"/>
+                                    <constraint firstAttribute="trailing" secondItem="BaX-oA-c52" secondAttribute="trailing" constant="15" id="meM-lX-WHF"/>
+                                    <constraint firstItem="BaX-oA-c52" firstAttribute="leading" secondItem="74R-om-GTk" secondAttribute="leading" constant="15" id="nPr-3P-kBj"/>
+                                    <constraint firstItem="NuW-pH-VCb" firstAttribute="top" secondItem="74R-om-GTk" secondAttribute="top" id="o28-5x-5kP"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="NuW-pH-VCb" firstAttribute="leading" secondItem="5pp-VX-lPd" secondAttribute="leading" constant="15" id="PMC-jF-l2R"/>
+                            <constraint firstItem="74R-om-GTk" firstAttribute="top" secondItem="5pp-VX-lPd" secondAttribute="top" id="Q3y-ic-Ms2"/>
+                            <constraint firstItem="5pp-VX-lPd" firstAttribute="bottom" secondItem="74R-om-GTk" secondAttribute="bottom" id="Rwd-8Y-1B8"/>
+                            <constraint firstItem="5pp-VX-lPd" firstAttribute="trailing" secondItem="NuW-pH-VCb" secondAttribute="trailing" constant="15" id="TtF-vh-Geo"/>
+                            <constraint firstItem="74R-om-GTk" firstAttribute="leading" secondItem="5pp-VX-lPd" secondAttribute="leading" id="mHk-Z2-Xaq"/>
+                            <constraint firstItem="5pp-VX-lPd" firstAttribute="trailing" secondItem="74R-om-GTk" secondAttribute="trailing" id="qho-SY-aud"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="5pp-VX-lPd"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Venue" image="map" id="QhN-xT-vAY"/>
@@ -386,6 +425,11 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="mapContainer" destination="BaX-oA-c52" id="7I8-tg-9L7"/>
+                        <outlet property="scrollView" destination="74R-om-GTk" id="EzX-7l-aZM"/>
+                        <outlet property="stackView" destination="NuW-pH-VCb" id="6CA-Fz-kVf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NTt-NL-qEM" sceneMemberID="firstResponder"/>
             </objects>
@@ -418,11 +462,14 @@
         <namedColor name="Primary Text Color">
             <color red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <namedColor name="Primary Text Color">
+            <color red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="Secondary Text Color">
             <color red="0.56470588239999997" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="R21-Fs-dqE"/>
+        <segue reference="uRh-8a-46l"/>
     </inferredMetricsTieBreakers>
 </document>

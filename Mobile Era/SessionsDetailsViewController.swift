@@ -110,6 +110,7 @@ class SessionsDetailsViewController: BaseViewController, EKEventEditViewDelegate
         if let speakers = session?.speakers {
             speakersTableView.register(SpeakerTableViewCell.nib, forCellReuseIdentifier: SpeakerTableViewCell.key)
             speakersSource = SpeakersSource(self, speakers: speakers)
+            speakersSource?.showIndex = false
             speakersTableView.dataSource = speakersSource
             speakersTableView.delegate = speakersSource
             speakersTableHeightConstraint.constant = CGFloat(speakers.count) * 76
