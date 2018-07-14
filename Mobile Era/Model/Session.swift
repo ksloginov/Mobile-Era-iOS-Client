@@ -8,21 +8,6 @@
 
 import Foundation
 
-class Session2: Codable {
-    
-    //private var KEY_FAVORITE_SESSION: String = "KEY_FAVORITE_SESSION_"
-    
-    var id: Int = 0
-    var title: String = ""
-    var description: String = ""
-    var image: String?
-    var language: String?
-    var lightning: Bool?
-    
-    var tags: [String]?
-    var price: String?
-}
-
 class Session: Codable {
     
     private static let KEY_FAVORITE_SESSION: String = "KEY_FAVORITE_SESSION_"
