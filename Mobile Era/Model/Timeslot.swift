@@ -7,27 +7,18 @@
 //
 
 import Foundation
-import ObjectMapper
 
-public class Timeslot: Mappable {
+class Timeslot: Codable {
 
-    public var startTime: String = ""
-    public var endTime: String = ""
-    public var sessionIds: [[Int]] = []
-    public var sessions: [Session] = []
-    
-    required public init?(map: Map) {}
-    
-    public func mapping(map: Map) {
-        startTime                <- map["startTime"]
-        endTime                  <- map["endTime"]
-        sessionIds               <- map["sessions"]
-    }
-    
-    public init() {}
-    public init(startTime: String, endTime: String, sessions: [Session]) {
+    var startTime: String = ""
+    var endTime: String = ""
+    var sessions: [[Int]] = []
+    var sessionsList: [Session]?
+
+    init() {}
+    init(startTime: String, endTime: String, sessionsList: [Session]?) {
         self.startTime = startTime
         self.endTime = endTime
-        self.sessions = sessions
+        self.sessionsList = sessionsList
     }
 }

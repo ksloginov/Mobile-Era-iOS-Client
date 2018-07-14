@@ -107,7 +107,7 @@ class SessionsDetailsViewController: BaseViewController, EKEventEditViewDelegate
 
         navigationItem.rightBarButtonItems = [btnAddToCalendar!, btnAddToFavorites!]
         
-        if let speakers = session?.speakers {
+        if let speakers = session?.speakersList {
             speakersTableView.register(SpeakerTableViewCell.nib, forCellReuseIdentifier: SpeakerTableViewCell.key)
             speakersSource = SpeakersSource(self, speakers: speakers)
             speakersSource?.showIndex = false
@@ -135,13 +135,11 @@ class SessionsDetailsViewController: BaseViewController, EKEventEditViewDelegate
         descriptionText.addAttribute(NSAttributedStringKey.paragraphStyle, value: paragraphStyle, range: NSRange (location: 0, length: descriptionText.length))
         lblDescription.attributedText = descriptionText
         
-        for tag in session.tags {
-            tagsStackView.addArrangedSubview(Tag.createTag(label: tag, clickable: false))
-        }
+        session.tags?.forEach({ tagsStackView.addArrangedSubview(Tag.createTag(label: $0, clickable: false))})
         
         lblSubtitle.text = session.language
-        if let startDate = session.startDate {
-            lblSubtitle.text = String(format: "%@ / %@", dateFormatter.string(from: startDate).capitalized, session.language)
+        if let startDate = session.startDate, let language = session.language {
+            lblSubtitle.text = String(format: "%@ / %@", dateFormatter.string(from: startDate).capitalized, language)
         }
     }
 }

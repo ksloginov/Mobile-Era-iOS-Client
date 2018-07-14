@@ -7,28 +7,13 @@
 //
 
 import Foundation
-import ObjectMapper
 
-public class Speaker: Mappable {
-    
-    public var id: Int = 0
-    public var name: String = ""
-    public var photoUrl: String = ""
-    public var shortBio: String = ""
-    public var company: String = ""
-    public var country: String = ""
-    public var socials: [Social] = []
-    
-    required public init?(map: Map) {}
-    
-    public func mapping(map: Map) {
-        id                  <- map["id"]
-        name                <- map["name"]
-        photoUrl            <- map["photoUrl"]
-        shortBio            <- map["shortBio"]
-        company             <- map["company"]
-        country             <- map["country"]
-        socials             <- map["socials"]
-    }
-
+class Speaker: Codable {
+    var id: Int = 0
+    var name: String = ""
+    var photoUrl: String = ""
+    var shortBio: String = ""
+    var company: String = ""
+    var country: String = ""
+    var socials: [Social]?
 }

@@ -10,7 +10,18 @@ import UIKit
 import Foundation
 import Firebase
 import FirebaseDatabase
-import ObjectMapper
+
+extension Decodable {
+    /// Initialize from JSON Dictionary. Return nil on failure
+    init?(dictionary value: [String:Any]){
+        
+        guard JSONSerialization.isValidJSONObject(value) else { return nil }
+        guard let jsonData = try? JSONSerialization.data(withJSONObject: value, options: []) else { return nil }
+        
+        guard let newValue = try? JSONDecoder().decode(Self.self, from: jsonData) else { return nil }
+        self = newValue
+    }
+}
 
 class SpeakersViewController: BaseViewController {
 
@@ -39,8 +50,14 @@ class SpeakersViewController: BaseViewController {
     private func loadData() {
         database.observe(.value) { [weak self] (snapshot) in
             guard
-                var speakers = Mapper<Speaker>().mapArray(JSONObject: snapshot.childSnapshot(forPath: "speakers").value),
-                let instructors = Mapper<Speaker>().mapArray(JSONObject: snapshot.childSnapshot(forPath: "instructors").value) else {
+                let speakersSnapshot = snapshot.childSnapshot(forPath: "speakers").value,
+                let instructorsSnapshot = snapshot.childSnapshot(forPath: "instructors").value,
+                JSONSerialization.isValidJSONObject(speakersSnapshot),
+                JSONSerialization.isValidJSONObject(instructorsSnapshot),
+                let speakersData = try? JSONSerialization.data(withJSONObject: speakersSnapshot, options: []),
+                let instructorsData = try? JSONSerialization.data(withJSONObject: instructorsSnapshot, options: []),
+                var speakers = try? JSONDecoder().decode([Speaker].self, from: speakersData),
+                let instructors = try? JSONDecoder().decode([Speaker].self, from: instructorsData) else {
                     print("Error parsing data from Firebase")
                     return
             }

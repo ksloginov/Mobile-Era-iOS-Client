@@ -46,8 +46,14 @@ class SpeakerTableViewCell: UICustomTableViewCell {
             imgAvatar.sd_setImage(with: url, completed: nil)
         }
         
-        imgTwitter.isHidden = !speaker.socials.contains(where: {$0.icon == "twitter"})
-        imgGithub.isHidden = !speaker.socials.contains(where: {$0.icon == "github"})
-        imgWebsite.isHidden = !speaker.socials.contains(where: {$0.icon == "website"})
+        if let socials = speaker.socials {
+            imgTwitter.isHidden = !socials.contains(where: {$0.icon == "twitter"})
+            imgGithub.isHidden = !socials.contains(where: {$0.icon == "github"})
+            imgWebsite.isHidden = !socials.contains(where: {$0.icon == "website"})
+        } else {
+            imgTwitter.isHidden = true
+            imgGithub.isHidden = true
+            imgWebsite.isHidden = true
+        }
     }
 }

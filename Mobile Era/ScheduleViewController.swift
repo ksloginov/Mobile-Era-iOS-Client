@@ -9,7 +9,6 @@
 import UIKit
 import Firebase
 import FirebaseDatabase
-import ObjectMapper
 
 class ScheduleViewController: BaseViewController {
     @IBAction func onSegmentControlValueChanged(_ sender: Any) {
@@ -107,12 +106,33 @@ class ScheduleViewController: BaseViewController {
         dateFormatter.locale = Locale(identifier: "en_US_POSIX")
         
         database.observe(.value) { [weak self] (snapshot) in
+            
             guard
-                let speakers = Mapper<Speaker>().mapArray(JSONObject: snapshot.childSnapshot(forPath: "speakers").value),
-                let instructors = Mapper<Speaker>().mapArray(JSONObject: snapshot.childSnapshot(forPath: "instructors").value),
-                let sessionsDictionary = Mapper<Session>().mapDictionary(JSONObject: snapshot.childSnapshot(forPath: "sessions").value),
-                let workshopsDictionary = Mapper<Session>().mapDictionary(JSONObject: snapshot.childSnapshot(forPath: "workshops").value),
-                let schedule = Mapper<Day>().mapArray(JSONObject: snapshot.childSnapshot(forPath: "schedule").value) else {
+                let speakersSnapshot = snapshot.childSnapshot(forPath: "speakers").value,
+                let instructorsSnapshot = snapshot.childSnapshot(forPath: "instructors").value,
+                let sessionsSnapshot = snapshot.childSnapshot(forPath: "sessions").value,
+                let workshopsSnapshot = snapshot.childSnapshot(forPath: "workshops").value,
+                let scheduleSnapshot = snapshot.childSnapshot(forPath: "schedule").value,
+                
+                JSONSerialization.isValidJSONObject(speakersSnapshot),
+                JSONSerialization.isValidJSONObject(instructorsSnapshot),
+                JSONSerialization.isValidJSONObject(sessionsSnapshot),
+                JSONSerialization.isValidJSONObject(workshopsSnapshot),
+                JSONSerialization.isValidJSONObject(scheduleSnapshot),
+                
+                let speakersData = try? JSONSerialization.data(withJSONObject: speakersSnapshot, options: []),
+                let instructorsData = try? JSONSerialization.data(withJSONObject: instructorsSnapshot, options: []),
+                let sessionsData = try? JSONSerialization.data(withJSONObject: sessionsSnapshot, options: []),
+                let workshopsData = try? JSONSerialization.data(withJSONObject: workshopsSnapshot, options: []),
+                let schedulesData = try? JSONSerialization.data(withJSONObject: scheduleSnapshot, options: []),
+                
+                let speakers = try? JSONDecoder().decode([Speaker].self, from: speakersData),
+                let instructors = try? JSONDecoder().decode([Speaker].self, from: instructorsData),
+                let sessionsDictionary = try? JSONDecoder().decode([String: Session].self, from: sessionsData),
+                let workshopsDictionary = try? JSONDecoder().decode([String: Session].self, from: workshopsData),
+                let schedule = try? JSONDecoder().decode([Day].self, from: schedulesData)
+                
+                else {
                     print("Error parsing data from Firebase")
                     return
             }
@@ -122,21 +142,22 @@ class ScheduleViewController: BaseViewController {
             var allTags: Set<String> = []
             for session in sessions {
                 var joinedSpeakerList: [Speaker] = []
-                for id in session.speakerIds {
+                
+                session.speakers?.forEach({ (id) in
                     let speakersPool = session.isWorkshop ? instructors : speakers
                     if let joinedSpeaker = speakersPool.first(where: {$0.id == id}) {
                         joinedSpeakerList.append(joinedSpeaker)
                     }
-                }
+                })
                 
-                session.speakers = joinedSpeakerList
-                session.tags.forEach({allTags.insert($0)})
+                session.speakersList = joinedSpeakerList
+                session.tags?.forEach({allTags.insert($0)})
             }
             
             for day in schedule {
                 for timeslot in day.timeslots {
                     var joinedSessionsList: [Session] = []
-                    for id in timeslot.sessionIds.map({$0.first}) {
+                    for id in timeslot.sessions.map({$0.first}) {
                         if let joinedSession = sessions.first(where: {$0.id == id}) {
                             joinedSession.startDate = dateFormatter.date(from: day.date + "T" + timeslot.startTime)
                             joinedSession.endDate = dateFormatter.date(from: day.date + "T" + timeslot.endTime)
@@ -144,7 +165,7 @@ class ScheduleViewController: BaseViewController {
                         }
                     }
                     
-                    timeslot.sessions = joinedSessionsList
+                    timeslot.sessionsList = joinedSessionsList
                 }
             }
             

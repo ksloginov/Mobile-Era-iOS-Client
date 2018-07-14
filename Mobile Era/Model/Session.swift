@@ -7,67 +7,66 @@
 //
 
 import Foundation
-import ObjectMapper
 
-public class Session: Mappable {
+class Session2: Codable {
     
-    private var KEY_FAVORITE_SESSION: String = "KEY_FAVORITE_SESSION_"
+    //private var KEY_FAVORITE_SESSION: String = "KEY_FAVORITE_SESSION_"
     
-    public var id: Int = 0
-    public var title: String = ""
-    public var description: String = ""
-    public var image: String = ""
-    public var language: String = ""
-    public var lightning: Bool = false
-    public var speakerIds: [Int] = []
-    public var speakers: [Speaker] = []
-    public var tags: [String] = []
-    public var price: String = ""
+    var id: Int = 0
+    var title: String = ""
+    var description: String = ""
+    var image: String?
+    var language: String?
+    var lightning: Bool?
     
-    public var startDate: Date?
-    public var endDate: Date?
-    public var duration: TimeInterval {
+    var tags: [String]?
+    var price: String?
+}
+
+class Session: Codable {
+    
+    private static let KEY_FAVORITE_SESSION: String = "KEY_FAVORITE_SESSION_"
+    
+    var id: Int = 0
+    var title: String = ""
+    var description: String = ""
+    var image: String?
+    var language: String?
+    var lightning: Bool?
+    var speakers: [Int]?
+    var speakersList: [Speaker]?
+    var tags: [String]?
+    var price: String?
+    
+    var startDate: Date?
+    var endDate: Date?
+    var duration: TimeInterval {
         guard let startDate = startDate, let endDate = endDate else { return 0 }
         return endDate.timeIntervalSince(startDate)
     }
     
-    public var isWorkshop: Bool {
+    var isWorkshop: Bool {
         return id >= 400 && id < 500
     }
     
-    public var isSystemAnnounce: Bool {
+    var isSystemAnnounce: Bool {
         return id >= 900
     }
     
-    public var isFavorite: Bool {
+    var isFavorite: Bool {
         if isSystemAnnounce {
             return false // lunch, system announce, etc.
         }
         
-        return UserDefaults.standard.bool (forKey: KEY_FAVORITE_SESSION + id.description)
+        return UserDefaults.standard.bool (forKey: Session.KEY_FAVORITE_SESSION + id.description)
     }
     
-    public func toggleFavorites() {
+    func toggleFavorites() {
         if isSystemAnnounce {
             return
         }
         
         let oldValue = isFavorite
-        UserDefaults.standard.set(!oldValue, forKey: KEY_FAVORITE_SESSION + id.description)
+        UserDefaults.standard.set(!oldValue, forKey: Session.KEY_FAVORITE_SESSION + id.description)
     }
-    
-    required public init?(map: Map) {}
-    
-    public func mapping(map: Map) {
-        id                  <- map["id"]
-        title               <- map["title"]
-        description         <- map["description"]
-        lightning           <- map["lightning"]
-        image               <- map["image"]
-        language            <- map["language"]
-        speakerIds          <- map["speakers"]
-        tags                <- map["tags"]
-    }
-
-    
 }

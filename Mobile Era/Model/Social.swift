@@ -7,20 +7,9 @@
 //
 
 import Foundation
-import ObjectMapper
 
-public class Social: Mappable {
-    
-    public var icon: String = "" // website, twitter, github, ..
-    public var name: String = ""
-    public var link: String = ""
-    
-    required public init?(map: Map) {}
-    
-    public func mapping(map: Map) {
-        icon                  <- map["icon"]
-        name                  <- map["name"]
-        link                  <- map["link"]
-    }
-    
+class Social: Codable {
+    var icon: String = "" // website, twitter, github, ..
+    var name: String = ""
+    var link: String = ""
 }

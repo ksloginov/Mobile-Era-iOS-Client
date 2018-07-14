@@ -12,15 +12,15 @@ import UIKit
 class SpeakersDetailsViewController: BaseViewController {
 
     @IBAction func onTwitterCliked(_ sender: Any) {
-        openUrl(speaker?.socials.first(where: {$0.icon == "twitter"})?.link)
+        openUrl(speaker?.socials?.first(where: {$0.icon == "twitter"})?.link)
         
     }
     @IBAction func onGithubClicked(_ sender: Any) {
-        openUrl(speaker?.socials.first(where: {$0.icon == "github"})?.link)
+        openUrl(speaker?.socials?.first(where: {$0.icon == "github"})?.link)
         
     }
     @IBAction func onWebsiteClicked(_ sender: Any) {
-        openUrl(speaker?.socials.first(where: {$0.icon == "website"})?.link)
+        openUrl(speaker?.socials?.first(where: {$0.icon == "website"})?.link)
     }
     
     private func openUrl (_ link: String?) {
@@ -78,9 +78,15 @@ class SpeakersDetailsViewController: BaseViewController {
             imgAvatar.sd_setImage(with: url, completed: nil)
         }
         
-        btnTwitter.isHidden = !speaker.socials.contains(where: {$0.icon == "twitter"})
-        btnGitHub.isHidden = !speaker.socials.contains(where: {$0.icon == "github"})
-        btnWeb.isHidden = !speaker.socials.contains(where: {$0.icon == "website"})
+        if let socials = speaker.socials {
+            btnTwitter.isHidden = !socials.contains(where: {$0.icon == "twitter"})
+            btnGitHub.isHidden = !socials.contains(where: {$0.icon == "github"})
+            btnWeb.isHidden = !socials.contains(where: {$0.icon == "website"})
+        } else {
+            btnTwitter.isHidden = true
+            btnGitHub.isHidden = true
+            btnWeb.isHidden = true
+        }
         
         socialMediaStackView.isHidden = btnTwitter.isHidden && btnGitHub.isHidden && btnWeb.isHidden
         

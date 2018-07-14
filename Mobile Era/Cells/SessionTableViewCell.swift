@@ -78,7 +78,7 @@ class SessionTableViewCell: UICustomTableViewCell {
         separatorHeight.constant = 0.5
         lblTitle.text = ""
         if let session = session {
-            let text = session.title + (session.lightning ? " ⚡" : "")
+            let text = session.title + (session.lightning == true ? " ⚡" : "")
             let attributedText = NSMutableAttributedString (string: text)
             let paragraphStyle = NSMutableParagraphStyle()
             paragraphStyle.lineSpacing = 2
@@ -86,9 +86,9 @@ class SessionTableViewCell: UICustomTableViewCell {
             lblTitle.attributedText = attributedText
         }
         
-        lblSpeaker.text = (session?.speakers.map({$0.name}).joined(separator: ", "))
+        lblSpeaker.text = (session?.speakersList?.map({$0.name}).joined(separator: ", "))
         
-        if let speakersCount = session?.speakers.count, speakersCount > 1 {
+        if let speakersCount = session?.speakers?.count, speakersCount > 1 {
             lblExtraAvatarsCount.isHidden = false
             lblExtraAvatarsCount.text = "+" + (speakersCount - 1).description
         } else {
@@ -98,7 +98,7 @@ class SessionTableViewCell: UICustomTableViewCell {
         btnStar.isHidden = session?.isSystemAnnounce == true
         btnStar.setImage(session?.isFavorite == true ? R.image.star_filled() : R.image.star(), for: .normal)
         
-        if let photoUrl = session?.speakers.first?.photoUrl, let url = URL(string: AppDelegate.domain + photoUrl) {
+        if let photoUrl = session?.speakersList?.first?.photoUrl, let url = URL(string: AppDelegate.domain + photoUrl) {
             imgAvatar.sd_setImage(with: url, completed: nil)
         } else if let sessionUrl = session?.image, let url = URL(string: AppDelegate.domain + sessionUrl) {
             imgAvatar.sd_setImage(with: url, completed: nil)
@@ -115,7 +115,7 @@ class SessionTableViewCell: UICustomTableViewCell {
             }
         }
         
-        let hasFooter = session?.tags.isEmpty == false || session?.isSystemAnnounce == false
+        let hasFooter = session?.tags?.isEmpty == false || session?.isSystemAnnounce == false
         
         bottomAvatarConstraint.constant = hasFooter ? 36 : 8
         bottomSpeakerConstraint.constant = hasFooter ? 36 : 8

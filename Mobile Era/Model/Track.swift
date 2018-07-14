@@ -7,15 +7,7 @@
 //
 
 import Foundation
-import ObjectMapper
 
-public class Track: Mappable {
-    
-    public var title: String = ""
-    
-    required public init?(map: Map) {}
-    
-    public func mapping(map: Map) {
-        title                  <- map["title"]
-    }
+class Track: Codable {
+    var title: String = ""
 }
