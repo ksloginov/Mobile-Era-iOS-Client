@@ -28,7 +28,6 @@
 		D05AA5DC208C83EA002DC68C /* Social.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05AA5DB208C83EA002DC68C /* Social.swift */; };
 		D05AA5DE208C84B0002DC68C /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05AA5DD208C84B0002DC68C /* Session.swift */; };
 		D05AA5E2208C85B4002DC68C /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05AA5E1208C85B4002DC68C /* Day.swift */; };
-		D05AA5E4208C8609002DC68C /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05AA5E3208C8609002DC68C /* Track.swift */; };
 		D05AA5E6208C8663002DC68C /* Timeslot.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05AA5E5208C8663002DC68C /* Timeslot.swift */; };
 		D05AA5E8208C8859002DC68C /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05AA5E7208C8859002DC68C /* Utils.swift */; };
 		D05AA5F0208C8C94002DC68C /* UICustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05AA5EF208C8C94002DC68C /* UICustomTableViewCell.swift */; };
@@ -92,7 +91,6 @@
 		D05AA5DB208C83EA002DC68C /* Social.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Social.swift; sourceTree = "<group>"; };
 		D05AA5DD208C84B0002DC68C /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		D05AA5E1208C85B4002DC68C /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
-		D05AA5E3208C8609002DC68C /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
 		D05AA5E5208C8663002DC68C /* Timeslot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timeslot.swift; sourceTree = "<group>"; };
 		D05AA5E7208C8859002DC68C /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		D05AA5EF208C8C94002DC68C /* UICustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UICustomTableViewCell.swift; path = Cells/UICustomTableViewCell.swift; sourceTree = "<group>"; };
@@ -244,7 +242,6 @@
 				D05AA5DB208C83EA002DC68C /* Social.swift */,
 				D05AA5DD208C84B0002DC68C /* Session.swift */,
 				D05AA5E1208C85B4002DC68C /* Day.swift */,
-				D05AA5E3208C8609002DC68C /* Track.swift */,
 				D05AA5E5208C8663002DC68C /* Timeslot.swift */,
 			);
 			path = Model;
@@ -511,7 +508,6 @@
 				D05AA5CF208C7A9A002DC68C /* R.generated.swift in Sources */,
 				D05AA5C3208C6AB2002DC68C /* VenueViewController.swift in Sources */,
 				D0DBBD6420B2E2BC0091FF21 /* InformationPopupController.swift in Sources */,
-				D05AA5E4208C8609002DC68C /* Track.swift in Sources */,
 				D0A59F5C20AB7ECF0011173F /* SpeakerTableViewCell.swift in Sources */,
 				D04D2016208FB1DA005E5A7D /* Notification.swift in Sources */,
 				D05AA5A3208C64F1002DC68C /* ScheduleViewController.swift in Sources */,
@@ -702,7 +698,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MWA7HDX56V;
 				INFOPLIST_FILE = "Mobile Era/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mobilefootie.fotmobpro.Mobile-Era";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -718,7 +717,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MWA7HDX56V;
 				INFOPLIST_FILE = "Mobile Era/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mobilefootie.fotmobpro.Mobile-Era";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -734,7 +736,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MWA7HDX56V;
 				INFOPLIST_FILE = "Mobile EraUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mobilefootie.fotmobpro.Mobile-EraUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -751,7 +757,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MWA7HDX56V;
 				INFOPLIST_FILE = "Mobile EraUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mobilefootie.fotmobpro.Mobile-EraUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
