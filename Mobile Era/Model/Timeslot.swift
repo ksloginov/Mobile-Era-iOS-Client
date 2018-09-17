@@ -8,11 +8,15 @@
 
 import Foundation
 
+class SessionItem: Codable {
+    var items: [Int] = []
+}
+
 class Timeslot: Codable {
 
     var startTime: String = ""
     var endTime: String = ""
-    var sessions: [[Int]] = []
+    var sessions: [SessionItem] = []
     var sessionsList: [Session]?
 
     init() {}

@@ -12,9 +12,9 @@ class Session: Codable {
     
     private static let KEY_FAVORITE_SESSION: String = "KEY_FAVORITE_SESSION_"
     
-    var id: Int = 0
+    var id: Int?
     var title: String = ""
-    var description: String = ""
+    var description: String?
     var image: String?
     var language: String?
     var lightning: Bool?
@@ -31,14 +31,17 @@ class Session: Codable {
     }
     
     var isWorkshop: Bool {
+        guard let id = id else { return false }
         return id >= 400 && id < 500
     }
     
     var isSystemAnnounce: Bool {
-        return id < 100
+        guard let id = id else { return false }
+        return id < 99
     }
     
     var isFavorite: Bool {
+        guard let id = id else { return false }
         if isSystemAnnounce {
             return false // lunch, system announce, etc.
         }
@@ -47,6 +50,7 @@ class Session: Codable {
     }
     
     func toggleFavorites() {
+        guard let id = id else { return }
         if isSystemAnnounce {
             return
         }

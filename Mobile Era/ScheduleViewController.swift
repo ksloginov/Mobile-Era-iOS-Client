@@ -109,43 +109,48 @@ class ScheduleViewController: BaseViewController {
             
             guard
                 let speakersSnapshot = snapshot.childSnapshot(forPath: "speakers").value,
-                let instructorsSnapshot = snapshot.childSnapshot(forPath: "instructors").value,
                 let sessionsSnapshot = snapshot.childSnapshot(forPath: "sessions").value,
-                let workshopsSnapshot = snapshot.childSnapshot(forPath: "workshops").value,
                 let scheduleSnapshot = snapshot.childSnapshot(forPath: "schedule").value,
                 
                 JSONSerialization.isValidJSONObject(speakersSnapshot),
-                JSONSerialization.isValidJSONObject(instructorsSnapshot),
                 JSONSerialization.isValidJSONObject(sessionsSnapshot),
-                JSONSerialization.isValidJSONObject(workshopsSnapshot),
                 JSONSerialization.isValidJSONObject(scheduleSnapshot),
                 
                 let speakersData = try? JSONSerialization.data(withJSONObject: speakersSnapshot, options: []),
-                let instructorsData = try? JSONSerialization.data(withJSONObject: instructorsSnapshot, options: []),
                 let sessionsData = try? JSONSerialization.data(withJSONObject: sessionsSnapshot, options: []),
-                let workshopsData = try? JSONSerialization.data(withJSONObject: workshopsSnapshot, options: []),
                 let schedulesData = try? JSONSerialization.data(withJSONObject: scheduleSnapshot, options: []),
                 
-                let speakers = try? JSONDecoder().decode([Speaker].self, from: speakersData),
-                let instructors = try? JSONDecoder().decode([Speaker].self, from: instructorsData),
+                let speakersDictionary = try? JSONDecoder().decode([String : Speaker].self, from: speakersData),
                 let sessionsDictionary = try? JSONDecoder().decode([String: Session].self, from: sessionsData),
-                let workshopsDictionary = try? JSONDecoder().decode([String: Session].self, from: workshopsData),
-                let schedule = try? JSONDecoder().decode([Day].self, from: schedulesData)
+                let scheduleDictionary = try? JSONDecoder().decode([String: Day].self, from: schedulesData)
                 
                 else {
                     print("Error parsing data from Firebase")
                     return
             }
             
-            let sessions = Array(sessionsDictionary.values) + Array(workshopsDictionary.values)
+            for speaker in speakersDictionary {
+                speaker.value.id = speaker.key
+            }
+            
+            for session in sessionsDictionary {
+                session.value.id = Int(session.key)
+            }
+            
+            for day in scheduleDictionary {
+                day.value.date = day.key
+            }
+            
+            let speakers = Array(speakersDictionary.values)
+            let sessions = Array(sessionsDictionary.values)
+            let schedule = Array(scheduleDictionary.values)
             
             var allTags: Set<String> = []
             for session in sessions {
                 var joinedSpeakerList: [Speaker] = []
                 
                 session.speakers?.forEach({ (id) in
-                    let speakersPool = session.isWorkshop ? instructors : speakers
-                    if let joinedSpeaker = speakersPool.first(where: {$0.id == id}) {
+                    if let joinedSpeaker = speakers.first(where: {$0.id == id}) {
                         joinedSpeakerList.append(joinedSpeaker)
                     }
                 })
@@ -157,10 +162,11 @@ class ScheduleViewController: BaseViewController {
             for day in schedule {
                 for timeslot in day.timeslots {
                     var joinedSessionsList: [Session] = []
-                    for id in timeslot.sessions.map({$0.first}) {
-                        if let joinedSession = sessions.first(where: {$0.id == id}) {
-                            joinedSession.startDate = dateFormatter.date(from: day.date + "T" + timeslot.startTime)
-                            joinedSession.endDate = dateFormatter.date(from: day.date + "T" + timeslot.endTime)
+                    for id in timeslot.sessions.map({$0.items.first}) {
+                        if let joinedSession = sessions.first(where: {$0.id == id}),
+                            let date = day.date {
+                            joinedSession.startDate = dateFormatter.date(from: date + "T" + timeslot.startTime)
+                            joinedSession.endDate = dateFormatter.date(from: date + "T" + timeslot.endTime)
                             joinedSessionsList.append(joinedSession)
                         }
                     }

@@ -61,11 +61,19 @@ public class Tag: UIButton {
             return UIColor.fromRGB(164, 198, 57)
         case "iOS":
             return UIColor.fromRGB(95, 201, 248)
+        case "tvOS (UX, Design, Swift)":
+            return UIColor.fromRGB(95, 201, 248)
         case "Cross-platform":
+            return UIColor.fromRGB(179, 142, 248)
+        case "Xamarin":
+            return UIColor.fromRGB(179, 142, 248)
+        case "Flutter":
             return UIColor.fromRGB(179, 142, 248)
         case "Productivity":
             return UIColor.fromRGB(255, 89, 124)
         case "Mobile Web":
+            return UIColor.fromRGB(140, 136, 124)
+        case "JS-to-Native":
             return UIColor.fromRGB(140, 136, 124)
         case "Security":
             return UIColor.fromRGB(69, 69, 69)
@@ -78,6 +86,8 @@ public class Tag: UIButton {
         case "Architecture":
             return UIColor.fromRGB(253, 151, 39)
         case "Backend":
+            return UIColor.fromRGB(43, 152, 240)
+        case "Backends":
             return UIColor.fromRGB(43, 152, 240)
         case "CI":
             return UIColor.fromRGB(205, 218, 73)

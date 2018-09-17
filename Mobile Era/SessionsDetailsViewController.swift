@@ -131,7 +131,7 @@ class SessionsDetailsViewController: BaseViewController, EKEventEditViewDelegate
         titleText.addAttribute(NSAttributedStringKey.paragraphStyle, value: paragraphStyle, range: NSRange (location: 0, length: titleText.length))
         lblTitle.attributedText = titleText
         
-        let descriptionText = NSMutableAttributedString (string: session.description)
+        let descriptionText = NSMutableAttributedString (string: session.description ?? "")
         descriptionText.addAttribute(NSAttributedStringKey.paragraphStyle, value: paragraphStyle, range: NSRange (location: 0, length: descriptionText.length))
         lblDescription.attributedText = descriptionText
         
