@@ -51,25 +51,15 @@ class SpeakersViewController: BaseViewController {
         database.observe(.value) { [weak self] (snapshot) in
             guard
                 let speakersSnapshot = snapshot.childSnapshot(forPath: "speakers").value,
-                let instructorsSnapshot = snapshot.childSnapshot(forPath: "instructors").value,
                 JSONSerialization.isValidJSONObject(speakersSnapshot),
-                JSONSerialization.isValidJSONObject(instructorsSnapshot),
                 let speakersData = try? JSONSerialization.data(withJSONObject: speakersSnapshot, options: []),
-                let instructorsData = try? JSONSerialization.data(withJSONObject: instructorsSnapshot, options: []),
-                var speakers = try? JSONDecoder().decode([Speaker].self, from: speakersData),
-                let instructors = try? JSONDecoder().decode([Speaker].self, from: instructorsData) else {
-                    print("Error parsing data from Firebase")
-                    return
-            }
+                let speakersDictionary = try? JSONDecoder().decode([String : Speaker].self, from: speakersData) else { return }
 
-            for instructor in instructors {
-                // Minor hack to avoid data-duplication: in ME-db, instructors have different IDs (i.e. we have 2 "copies" of Wei Meng or Svetlana. With 2XX and 3XX ids each)
-                if !speakers.contains(where: {$0.name == instructor.name}) {
-                    speakers.append(instructor)
-                }
+            for speaker in speakersDictionary {
+                speaker.value.id = speaker.key
             }
             
-            self?.speakersSource?.setData(speakers)
+            self?.speakersSource?.setData(Array(speakersDictionary.values))
             self?.tableView.reloadData()
         }
     }

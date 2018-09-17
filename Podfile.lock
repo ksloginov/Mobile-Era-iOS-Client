@@ -51,7 +51,7 @@ DEPENDENCIES:
   - Toaster
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  https://github.com/cocoapods/specs.git:
     - Alamofire
     - Firebase
     - FirebaseAnalytics
@@ -85,4 +85,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 85e80d56ec3a8175438123ee63a894a931d9b9ac
 
-COCOAPODS: 1.5.0
+COCOAPODS: 1.5.3

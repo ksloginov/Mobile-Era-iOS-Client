@@ -38,20 +38,20 @@ class InformationPopupController: UIViewController, UITextViewDelegate, MFMailCo
         paragraphStyle.alignment = .center
         
         let sponsorsString = NSMutableAttributedString(string: R.string.localizable.sponsors())
-        sponsorsString.addAttributes([.link: "https://2017.mobileera.rocks/sponsors/",
+        sponsorsString.addAttributes([.link: "https://mobileera.rocks/",
                                       .paragraphStyle: paragraphStyle,
                                       .font: UIFont.systemFont(ofSize: 16, weight: .medium)], range: NSRange(location: 0, length: sponsorsString.length))
         lblSponsors.attributedText = sponsorsString
         lblSponsors.delegate = self
         
         let codeOfConductString = NSMutableAttributedString(string: R.string.localizable.codeofconduct())
-        codeOfConductString.addAttributes([.link: "https://2017.mobileera.rocks/cod/",
+        codeOfConductString.addAttributes([.link: "https://2017.mobileera.rocks/cod/", // we still don't have COD in 2018th 
                                       .paragraphStyle: paragraphStyle,
                                       .font: UIFont.systemFont(ofSize: 16, weight: .medium)], range: NSRange(location: 0, length: codeOfConductString.length))
         lblCodeOfConduct.attributedText = codeOfConductString
         
         let teamString = NSMutableAttributedString(string: R.string.localizable.mobileera_team())
-        teamString.addAttributes([.link: "https://2017.mobileera.rocks/team/",
+        teamString.addAttributes([.link: "https://2018.mobileera.rocks/team/",
                                            .paragraphStyle: paragraphStyle,
                                            .font: UIFont.systemFont(ofSize: 16, weight: .medium)], range: NSRange(location: 0, length: teamString.length))
         lblTeam.attributedText = teamString

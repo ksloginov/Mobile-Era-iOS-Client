@@ -18,7 +18,7 @@ class Session: Codable {
     var image: String?
     var language: String?
     var lightning: Bool?
-    var speakers: [Int]?
+    var speakers: [String]?
     var speakersList: [Speaker]?
     var tags: [String]?
     var price: String?
@@ -35,7 +35,7 @@ class Session: Codable {
     }
     
     var isSystemAnnounce: Bool {
-        return id >= 900
+        return id < 100
     }
     
     var isFavorite: Bool {

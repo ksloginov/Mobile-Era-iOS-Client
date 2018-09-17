@@ -93,7 +93,7 @@ class SpeakersDetailsViewController: BaseViewController {
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = 2
 
-        let descriptionText = NSMutableAttributedString (string: speaker.shortBio)
+        let descriptionText = NSMutableAttributedString (string: speaker.bio ?? "")
         descriptionText.addAttribute(NSAttributedStringKey.paragraphStyle, value: paragraphStyle, range: NSRange (location: 0, length: descriptionText.length))
         lblDescription.attributedText = descriptionText
     }

@@ -27,6 +27,7 @@ class SpeakerTableViewCell: UICustomTableViewCell {
         
         imgAvatar.layer.cornerRadius = 8
         imgAvatar.clipsToBounds = true
+        imgAvatar.backgroundColor = R.color.separatorColor()
     }
     
     public func set(speaker: Speaker?) {

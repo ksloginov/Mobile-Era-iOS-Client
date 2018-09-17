@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -27,8 +27,8 @@
                             <constraint firstAttribute="width" constant="64" id="qcN-Ns-lOa"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kqr-8d-Jwn">
-                        <rect key="frame" x="87" y="5.5" width="0.0" height="0.0"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kqr-8d-Jwn">
+                        <rect key="frame" x="87" y="5.5" width="225" height="0.0"/>
                         <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="16"/>
                         <color key="textColor" name="Primary Text Color"/>
                         <nil key="highlightedColor"/>
@@ -74,9 +74,11 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="kqr-8d-Jwn" firstAttribute="top" secondItem="Bz6-4f-gGf" secondAttribute="top" id="2Ru-Cm-4hU"/>
+                    <constraint firstAttribute="trailing" secondItem="kqr-8d-Jwn" secondAttribute="trailing" constant="8" id="7nl-UB-yTa"/>
                     <constraint firstItem="HE2-Zv-nkk" firstAttribute="bottom" secondItem="Bz6-4f-gGf" secondAttribute="bottom" id="MGo-4r-Lls"/>
                     <constraint firstItem="kqr-8d-Jwn" firstAttribute="leading" secondItem="Bz6-4f-gGf" secondAttribute="trailing" constant="8" id="OLU-Jz-WaS"/>
                     <constraint firstItem="Bz6-4f-gGf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="Qsf-hr-8xV"/>
+                    <constraint firstItem="HE2-Zv-nkk" firstAttribute="top" relation="greaterThanOrEqual" secondItem="c7w-wK-Dkt" secondAttribute="bottom" constant="8" id="eMm-hR-7r5"/>
                     <constraint firstAttribute="bottom" secondItem="Bz6-4f-gGf" secondAttribute="bottom" constant="6" id="jiI-rB-ib5"/>
                     <constraint firstItem="c7w-wK-Dkt" firstAttribute="top" secondItem="kqr-8d-Jwn" secondAttribute="bottom" constant="2" id="ogu-Zg-wIA"/>
                     <constraint firstItem="c7w-wK-Dkt" firstAttribute="leading" secondItem="kqr-8d-Jwn" secondAttribute="leading" id="q1s-Mq-10C"/>
