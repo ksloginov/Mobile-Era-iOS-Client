@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Mobile Era/Model/Tag.swift"
-            timestampString = "558899439.5027601"
+            timestampString = "558900730.041304"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "63"
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Mobile Era/Datasources/ScheduleSource.swift"
-            timestampString = "558899439.503083"
+            timestampString = "558900730.041366"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
             landmarkName = "tableView(_:didSelectRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -58,7 +58,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Mobile Era/SessionsDetailsViewController.swift"
-            timestampString = "558899439.503166"
+            timestampString = "558900730.041451"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "61"
@@ -74,7 +74,7 @@
                   moduleName = "Mobile Era"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/klogi/Development/iOS/Mobile%20Era/Mobile%20Era/SessionsDetailsViewController.swift"
-                  timestampString = "558899439.677062"
+                  timestampString = "558900691.076092"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "61"
@@ -89,7 +89,7 @@
                   moduleName = "Mobile Era"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/klogi/Development/iOS/Mobile%20Era/Mobile%20Era/SessionsDetailsViewController.swift"
-                  timestampString = "558899439.680047"
+                  timestampString = "558900691.079881"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "61"
@@ -97,6 +97,22 @@
                   offsetFromSymbolStart = "28">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Mobile Era/ScheduleViewController.swift"
+            timestampString = "558900730.0414979"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "185"
+            endingLineNumber = "185"
+            landmarkName = "loadData()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

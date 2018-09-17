@@ -143,7 +143,14 @@ class ScheduleViewController: BaseViewController {
             
             let speakers = Array(speakersDictionary.values)
             let sessions = Array(sessionsDictionary.values)
-            let schedule = Array(scheduleDictionary.values)
+            var schedule = Array(scheduleDictionary.values)
+            schedule.sort(by: { (d1, d2) -> Bool in
+                if let d1Date = d1.date, let d2Date = d2.date {
+                    return d1Date < d2Date
+                }
+                
+                return false
+            })
             
             var allTags: Set<String> = []
             for session in sessions {

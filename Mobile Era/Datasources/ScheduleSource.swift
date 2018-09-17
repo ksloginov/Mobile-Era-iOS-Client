@@ -12,11 +12,15 @@ import UIKit
 class ScheduleSource: NSObject, UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if tableView.numberOfSections == section + 1 && selectedDay != 0 {
+            return 1
+        }
+        
         return data[safe: section]?.sessionsList?.count ?? 0
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return data.count
+        return data.count + (selectedDay == 0 ? 0 : 1)
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
